@@ -56,7 +56,7 @@ class Setting < ActiveRecord::Base
       when setting.reference? || setting.image?
         setting.load_reference
       else
-        setting.value
+        setting.value.to_s
     end
   end
 

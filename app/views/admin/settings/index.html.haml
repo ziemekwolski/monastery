@@ -25,7 +25,8 @@
           %td= setting.name
           %td
             - if setting.image?
-              %img{src: setting.load_image.file.url(:square_200), style: "max-width: 50px; max-height: 50px;"}
+              - unless setting.value.empty?
+                %img{src: setting.load_image.file.url(:square_200), style: "max-width: 50px; max-height: 50px;"}
             - else
               = truncate(setting.value, length: 100)
           %td= link_to 'Edit', edit_admin_setting_path(setting), class: "btn btn-default"
