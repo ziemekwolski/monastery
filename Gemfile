@@ -57,6 +57,7 @@ gem 'compass-rails' # css
 gem 'ransack', '~> 1.4.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'paperclip', '~> 4.2.0'
+gem 'aws-sdk', group: :production
 gem 'jquery.fileupload-rails'
 gem 'active_model_serializers', git: "https://github.com/rails-api/active_model_serializers.git"
 gem 'github-markdown', '~> 0.6.7'
