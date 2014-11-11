@@ -21,9 +21,10 @@ class Upload < ActiveRecord::Base
   # == Extensions ===========================================================
 
   has_attached_file :file, styles: {
-    square_200: "200x200#",
-    vertical_620: "368x620#",
-    wide_1440: "1440x460#"
+    square_200:    "200x200#",
+    vertical_620:  "368x620#",
+    wide_1440:     "1440x460#",
+    square_1440:   "1440x1440#"
   }
 
   # == Relationships ========================================================

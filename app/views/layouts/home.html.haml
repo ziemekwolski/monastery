@@ -11,7 +11,7 @@
 
         - main_image = Setting.get(:main_image)
         - if main_image
-          - style = "background-image: url(#{main_image.file.url(:wide_1440)});"
+          - style = "background-image: url(#{main_image.file.url(:square_1440)});"
         - else
           - style = ""
         .sidebar.col-md-5.col-sm-12{style: style}
