@@ -17,3 +17,5 @@
 
 # Don't include the system folder
 /public/system
+
+.DS_Store
