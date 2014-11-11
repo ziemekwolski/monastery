@@ -1,0 +1,27 @@
+- content_for :hero_image, @post.upload.file.url(:wide_1440)
+- if @post.seo_description.present?
+  - content_for :seo_description, @post.seo_description
+
+.post
+  %p.meta
+    In
+    = link_to @post.category.name, category_path(@post.category)
+    %i.link-spacer
+    By
+    = @post.user.name
+    %img.user-icon.user-1{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
+
+  %h1= @post.title
+  - if @post.subtitle.present?
+    %p.subtitle= @post.subtitle
+
+  .body
+    ~ parse_body(@post.body)
+
+  - if @post.source_url.present? && @post.source_name.present?
+    %span.source
+      Source:
+      = link_to @post.source_name, @post.source_url, target: "_blank"
+
+  .single-footer
+    = render partial: "common/user_social", locals: {user: @post.user}

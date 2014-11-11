@@ -1,0 +1,8 @@
+.nav
+  %a.select-posts.active{:href => "#"} Posts
+  %a.select-categories{:href => "#"} Categories
+.home-page-posts.animated.fadeIn
+  = render partial: "common/posts", locals: {posts: @posts}
+
+.home-page-categories.hide.animated.fadeIn
+  = render partial: "common/categories", locals: {categories: @categories}

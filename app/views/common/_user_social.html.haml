@@ -1,0 +1,10 @@
+.social.clearfix
+  - if user.twitter.present?
+    %a.social-icon{:href => "https://twitter.com/#{user.twitter}", target: "_blank"}
+      %i.entypo-twitter
+  - if user.linkedin.present?
+    %a.social-icon{:href => "https://linkedin.com/profile/view?id=#{user.linkedin}", target: "_blank"}
+      %i.entypo-linkedin
+  - if user.github.present?
+    %a.social-icon{:href => "https://github.com/#{user.github}", target: "_blank"}
+      %i.entypo-github

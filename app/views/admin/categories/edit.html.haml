@@ -1,0 +1,8 @@
+.row
+  .col-lg-12
+    %h1.page-header
+      Editing #{@category.name}
+      .pull-right
+        = link_to "View", category_path(@category), class: "btn btn-default", target: "_blank"
+
+= render 'form'

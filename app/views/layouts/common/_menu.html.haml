@@ -1,0 +1,8 @@
+%ul
+  %li
+    %i.entypo-home
+    = link_to "Home", root_path
+  - Post.nav_posts.each do |post|
+    %li
+      %i.entypo-tag
+      = link_to post.title, page_url(post)

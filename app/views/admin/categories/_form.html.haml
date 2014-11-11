@@ -1,0 +1,14 @@
+= render partial: "admin/uploads/single_file_upload", locals: {object: @category, target: "#category_upload_id"}
+
+= simple_form_for([:admin, @category]) do |f|
+  .row
+    .col-lg-6
+
+      = f.input :slug
+      = f.input :name
+      = f.input :description
+      = f.input :upload_id, as: :hidden
+      = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox
+
+      .actions
+        = f.submit 'Save', class: "btn btn-primary"

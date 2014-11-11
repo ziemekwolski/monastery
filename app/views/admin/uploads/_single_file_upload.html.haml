@@ -1,0 +1,27 @@
+.row
+  .col-lg-6
+    .row
+      .col-lg-6
+        - if object.upload.present?
+          %p
+            = link_to object.upload.file.url do
+              %i.glyphicon.glyphicon-download
+              = (object.upload.name || object.upload.file_file_name)
+
+        %p
+          %a.btn.btn-success.fileinput-button{data: {upload_url: admin_uploads_path, selector: "#image_id", target: target}}
+            %i.glyphicon.glyphicon-plus
+            %span Browse or Upload Media
+            %input{id: "image_id", type: "file", name: "upload[file]"}
+
+        - if object.upload.present?
+          %p
+            %a.btn.btn-danger.delete-image{data: {selector: "#image_id", target: target}}
+              %i.glyphicon.glyphicon-trash
+              %span Delete
+
+      .col-lg-6
+        - if object.upload.present?
+          = image_tag object.upload.file.url(:square_200), class: "js-upload-image upload-display"
+        - else
+          = image_tag "", class: "hide js-upload-image upload-display"

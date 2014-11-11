@@ -1,0 +1,44 @@
+= render partial: "admin/uploads/single_file_upload", locals: {object: @post, target: "#post_upload_id"}
+
+.post
+  = simple_form_for [:admin, @post] do |f|
+    .row
+      .col-lg-6
+        = f.input :title
+        = f.input :subtitle
+        = f.input :summary
+      .col-lg-6
+        .row
+          .col-lg-6
+            = f.input :is_static, as: :boolean, wrapper: :inline_checkbox
+            = f.input :published, as: :boolean, wrapper: :inline_checkbox
+          .col-lg-6
+            .category
+              = f.input :user_id, collection: User.for_select
+              = f.input :category_id, collection: Category.for_select
+            = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox
+        .row
+          .col-lg-12
+            = f.input :slug
+
+    .row
+      .col-lg-12
+        #editor.row
+          .col-lg-6.markdown-entry
+            = f.input :body, input_html: {"v-model" => "input"}, label: false
+          .col-lg-6.markdown-preview{"v-html" => "input | marked"}
+
+    .row
+      .col-lg-6
+        .source
+          = f.input :source_url
+          = f.input :source_name
+      .col-lg-6
+        .seo
+          = f.input :seo_description
+
+    .row
+      .col-lg-6
+        .actions
+          = f.input :upload_id, as: :hidden
+          = f.submit 'Save', class: "btn btn-primary"

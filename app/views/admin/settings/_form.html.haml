@@ -1,0 +1,19 @@
+- if @setting.image?
+  = render partial: "admin/uploads/setting_file_upload", locals: {object: @setting}
+
+.setting
+  = simple_form_for [:admin, @setting] do |f|
+    .row
+      .col-lg-12
+        - if @setting.string?
+          = f.input :value, as: :string
+        - elsif @setting.code?
+          = f.input :value, as: :text, input_html: {class: "codemirror"}
+        - elsif @setting.image?
+          = f.input :value, as: :hidden
+        - else
+          = f.input :value
+    .row
+      .col-lg-6
+        .actions
+          = f.submit 'Save', class: "btn btn-primary"

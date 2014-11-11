@@ -1,0 +1,41 @@
+.row
+  .col-lg-12
+    %h1.page-header
+      Posts
+      .pull-right
+        = link_to 'New Post', new_admin_post_path, class: "btn btn-primary"
+
+    .page-header__search-body
+      = search_form_for [:admin, @search], :builder => SimpleForm::FormBuilder do |f|
+        .form-group
+          .input-group
+            = f.input :title_cont, label: "Search", required: false
+        .form-group
+          .input-group
+            %span.input-group-btn
+              = f.submit "Go", class: "btn btn-default"
+
+    = will_paginate @posts
+
+    %table.table.table-hover
+      %tr
+        %th
+        %th
+        %th= sort_link @search, :title, "Title"
+        %th Author
+        %th Category
+        %th= sort_link @search, :published_at, "Published"
+        %th Listed?
+        %th
+      - @posts.each do |post|
+        %tr
+          %td
+            - if post.is_static?
+              %i.fa.fa-fw.fa-bookmark
+          %td= post.id
+          %td= post.title
+          %td= post.user.try(:name)
+          %td= post.category.try(:name)
+          %td= post.published_at
+          %td= post.is_listed ? "Yes" : "No"
+          %td= link_to 'Edit', edit_admin_post_path(post), class: "btn btn-default"

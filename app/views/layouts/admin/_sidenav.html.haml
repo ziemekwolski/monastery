@@ -1,0 +1,21 @@
+.collapse.navbar-collapse.navbar-ex1-collapse
+  %ul.nav.navbar-nav.side-nav
+    %li
+      = link_to root_path do
+        %i.fa.fa-fw.fa-home
+        Website
+      = link_to admin_root_path do
+        %i.fa.fa-fw.fa-dashboard
+        Dashboard
+      = link_to admin_posts_path do
+        %i.fa.fa-fw.fa-list
+        Posts
+      = link_to admin_users_path do
+        %i.fa.fa-fw.fa-users
+        User
+      = link_to admin_categories_path do
+        %i.fa.fa-fw.fa-list
+        Categories
+      = link_to admin_settings_path do
+        %i.fa.fa-fw.fa-list
+        Settings

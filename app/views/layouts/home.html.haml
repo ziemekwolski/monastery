@@ -1,0 +1,37 @@
+!!! 5
+%html
+  = render partial: "layouts/common/head"
+
+  %body
+
+    .container.home-container
+      .row
+        #menu
+          = render partial: "layouts/common/menu"
+
+        - main_image = Setting.get(:main_image)
+        - if main_image
+          - style = "background-image: url(#{main_image.file.url(:wide_1440)});"
+        - else
+          - style = ""
+        .sidebar.col-md-5.col-sm-12{style: style}
+          %span.menu-trigger.side-writer-icon.animated.fadeInDown
+            %span.bar
+            %span.bar
+            %span.bar
+          / if the user has javascript disabled they can still use the menu
+          %noscript
+            .no-js-menu
+              = render partial: "layouts/common/menu"
+          / end no script
+          .site-info
+            .primary-info
+              %h1= Setting.get(:title)
+              %p= Setting.get(:short_desc)
+
+        .col-md-7.col-sm-12.col-md-offset-5.main-content
+          = yield
+
+          = render partial: "common/footer"
+
+    = render partial: "layouts/common/footer"

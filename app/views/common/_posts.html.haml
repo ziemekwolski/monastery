@@ -1,0 +1,15 @@
+- posts.each do |post|
+  .post
+    %section
+      .post-preview.col-xs-10.no-gutter
+        %h2
+          = link_to post.title, post_path(post)
+        %p= truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
+        %p.meta
+          In
+          = link_to post.category.name, category_path(post.category)
+          %i.link-spacer
+          By
+          = post.user.name
+      .col-xs-2.no-gutter
+        %img.user-icon.user-1{:alt => post.user.name, :src => post.user.upload.file.url(:square_200)}/

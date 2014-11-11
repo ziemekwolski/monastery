@@ -1,0 +1,27 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-header
+    %button.navbar-toggle{type: "button", data: {toggle: "collapse", target: ".navbar-ex1-collapse"}}
+      %span.sr-only Toggle Navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to "Admin", admin_root_path, class: "navbar-brand"
+
+  %ul.nav.navbar-right.top-nav
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.fa.fa-user
+        = current_user.name
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => edit_admin_user_path(current_user)}
+            %i.fa.fa-fw.fa-gear
+            Settings
+        %li.divider
+        %li
+          %a{:href => logout_path}
+            %i.fa.fa-fw.fa-power-off
+            Log Out
+
+  = render partial: "layouts/admin/sidenav"

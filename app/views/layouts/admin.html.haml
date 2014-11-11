@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %title Blog Admin
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+
+    #wrapper
+      = render partial: "layouts/admin/topnav"
+
+      #page-wrapper
+        .container-fluid
+          = yield
+
+    = render partial: "layouts/common/footer"

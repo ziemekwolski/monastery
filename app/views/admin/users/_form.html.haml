@@ -1,0 +1,15 @@
+= render partial: "admin/uploads/single_file_upload", locals: {object: @user, target: "#user_upload_id"}
+
+= simple_form_for [:admin, @user] do |f|
+  .row
+    .col-lg-6
+      = f.input :name
+      = f.input :email
+      = f.input :password
+      = f.input :linkedin
+      = f.input :twitter
+      = f.input :github
+      = f.input :upload_id, as: :hidden
+
+      .actions
+        = f.submit 'Save', class: "btn btn-primary"
