@@ -10,8 +10,6 @@
   %meta{property: "og:url", content: post_url(@post)}
   %meta{property: "og:description", content: description}
   %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
-  %meta{property: "og:type", content: "article"}
-  %meta{property: "article:author", content: @post.user.name}
 
 .post
   %p.meta
