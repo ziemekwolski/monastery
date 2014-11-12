@@ -9,6 +9,7 @@
   %meta{property: "og:url", content: post_url(@post)}
   %meta{property: "og:description", content: description}
   %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
+  %meta{property: "og:type", content: "website"}
 
 %h1= @post.title
 - if @post.subtitle.present?
