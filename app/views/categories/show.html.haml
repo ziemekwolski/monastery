@@ -1,6 +1,6 @@
 - content_for :left_title, @category.name
 - content_for :left_desc, @category.description
-- content_for :left_image_url, @category.upload.file.url
+- content_for :left_image_url, @category.upload.file.url(:square_1440)
 
 .row
   .favorites
@@ -11,19 +11,24 @@
       - @posts.each do |post|
         .post-favorite.col-xs-12.col-sm-6.no-gutter
           %h2= link_to post.title, post_path(post)
-          %p= truncate(strip_tags(post.body), length: 300).html_safe
+          %p
+            - if post.summary.present?
+              = post.summary.html_safe
+            - else
+              = truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
       - if @posts.empty?
         .post-favorite.col-xs-12.col-sm-12.no-gutter
           %h2 There are no article in this category yet.
 
-  .favorites
-    %h2 Other Categories
+  - if @other_categories.exists?
+    .favorites
+      %h2 Other Categories
 
-  .favorite-categories.clearfix.animated.fadeIn
-    .category.row
-      %section
-        - Category.where("categories.id != ?", @category.id).each do |category|
-          .category-preview.col-xs-6.col-sm-4
-            %h2= category.name
-            = link_to category_path(category) do
-              %img{:alt => "category-image", :src => category.upload.file.url(:vertical_620)}/
+    .favorite-categories.clearfix.animated.fadeIn
+      .category.row
+        %section
+          - @other_categories.each do |category|
+            .category-preview.col-xs-6.col-sm-4
+              %h2= category.name
+              = link_to category_path(category) do
+                %img{:alt => "category-image", :src => category.upload.file.url(:vertical_620)}/

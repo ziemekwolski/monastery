@@ -4,10 +4,12 @@ class CategoriesController < ApplicationController
   before_action :load_category, only: [:show]
 
   def index
+    @categories = Category.listed
   end
 
   def show
     @posts = @category.posts.listed_posts
+    @other_categories = Category.where("categories.id != ?", @category.id)
   end
 
   protected

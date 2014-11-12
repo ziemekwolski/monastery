@@ -1,1 +1,15 @@
-index.html.haml
+- content_for :left_title, "Categories"
+- content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
+
+.row
+  .favorites
+    %h2 Categories
+
+  .favorite-categories.clearfix.animated.fadeIn
+    .category.row
+      %section
+        - @categories.each do |category|
+          .category-preview.col-xs-6.col-sm-4
+            %h2= category.name
+            = link_to category_path(category) do
+              %img{:alt => "category-image", :src => category.upload.file.url(:vertical_620)}/
