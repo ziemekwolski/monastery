@@ -2,8 +2,8 @@
   %meta{charset: "utf-8"}/
   %meta{"http-equiv" => "X-UA-Compatible", content: "IE=edge,chrome=1"}/
   %title= [Setting.get(:title), content_for(:page_title)].reject(&:blank?).join(" | ")
-  %meta{name: "description", content: content_for(:seo_description)}
   %meta{name: "viewport", content: "width=device-width"}
+  = content_for(:meta_tags)
 
   %link{rel: "stylesheet", href: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css"}
   %script{src: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"}

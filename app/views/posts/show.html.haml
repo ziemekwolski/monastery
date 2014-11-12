@@ -1,6 +1,17 @@
 - content_for :hero_image, @post.upload.file.url(:wide_1440)
-- if @post.seo_description.present?
-  - content_for :seo_description, @post.seo_description
+- content_for :page_title, @post.title
+- content_for :meta_tags do
+  - description = @post.seo_description.present? ? @post.seo_description : @post.summary
+  %meta{name: "description", content: description}
+  %meta{name: "keywords", content: @post.seo_tags}
+  %meta{name: "author", content: @post.user.name}
+  %meta{name: "og:title", content: @post.title}
+  %meta{name: "og:site_name", content: Setting.get(:title)}
+  %meta{name: "og:url", content: post_url(@post)}
+  %meta{name: "og:description", content: description}
+  %meta{name: "og:image", content: @post.upload.file.url(:wide_1440)}
+  %meta{name: "og:type", content: "article"}
+  %meta{name: "article:author", content: @post.user.name}
 
 .post
   %p.meta
@@ -10,6 +21,8 @@
     By
     = @post.user.name
     %img.user-icon.user-1{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
+
+  = Setting.get(:social_share_code).html_safe
 
   %h1= @post.title
   - if @post.subtitle.present?

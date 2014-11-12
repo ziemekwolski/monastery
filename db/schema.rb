@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110182315) do
+ActiveRecord::Schema.define(version: 20141112123915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141110182315) do
     t.text     "snippet"
     t.text     "summary"
     t.boolean  "is_listed",       default: true,  null: false
+    t.string   "seo_tags"
   end
 
   create_table "settings", force: true do |t|

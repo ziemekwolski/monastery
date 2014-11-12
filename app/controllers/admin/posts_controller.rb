@@ -75,7 +75,7 @@ class Admin::PostsController < Admin::BaseController
       params.require(:post).permit(
         :slug, :title, :subtitle, :body, :user_id, :category_id, :is_static,
         :source_url, :source_name, :seo_description, :published,
-        :upload_id, :summary, :is_listed
+        :upload_id, :summary, :is_listed, :seo_tags
       )
     end
 end

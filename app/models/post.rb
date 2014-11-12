@@ -20,6 +20,7 @@
 #  snippet         :text
 #  summary         :text
 #  is_listed       :boolean          default("true"), not null
+#  seo_tags        :string
 #
 
 class Post < ActiveRecord::Base
