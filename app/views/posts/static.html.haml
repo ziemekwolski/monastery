@@ -4,11 +4,11 @@
   - description = @post.seo_description.present? ? @post.seo_description : @post.summary
   %meta{name: "description", content: description}
   %meta{name: "keywords", content: @post.seo_tags}
-  %meta{name: "og:title", content: @post.title}
-  %meta{name: "og:site_name", content: Setting.get(:title)}
-  %meta{name: "og:url", content: post_url(@post)}
-  %meta{name: "og:description", content: description}
-  %meta{name: "og:image", content: @post.upload.file.url(:wide_1440)}
+  %meta{property: "og:title", content: @post.title}
+  %meta{property: "og:site_name", content: Setting.get(:title)}
+  %meta{property: "og:url", content: post_url(@post)}
+  %meta{property: "og:description", content: description}
+  %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
 
 %h1= @post.title
 - if @post.subtitle.present?

@@ -5,13 +5,13 @@
   %meta{name: "description", content: description}
   %meta{name: "keywords", content: @post.seo_tags}
   %meta{name: "author", content: @post.user.name}
-  %meta{name: "og:title", content: @post.title}
-  %meta{name: "og:site_name", content: Setting.get(:title)}
-  %meta{name: "og:url", content: post_url(@post)}
-  %meta{name: "og:description", content: description}
-  %meta{name: "og:image", content: @post.upload.file.url(:wide_1440)}
-  %meta{name: "og:type", content: "article"}
-  %meta{name: "article:author", content: @post.user.name}
+  %meta{property: "og:title", content: @post.title}
+  %meta{property: "og:site_name", content: Setting.get(:title)}
+  %meta{property: "og:url", content: post_url(@post)}
+  %meta{property: "og:description", content: description}
+  %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
+  %meta{property: "og:type", content: "article"}
+  %meta{property: "article:author", content: @post.user.name}
 
 .post
   %p.meta
