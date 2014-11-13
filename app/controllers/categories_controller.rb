@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 
   def show
     @posts = @category.posts.listed_posts
-    @other_categories = Category.where("categories.id != ?", @category.id)
+    @other_categories = Category.listed.where("categories.id != ?", @category.id)
   end
 
   protected

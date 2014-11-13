@@ -20,12 +20,10 @@
 //= require_tree ./main
 
 $(document).ready(function() {
-  /*
   $('pre code').each(function(i, block) {
-    var pre = $(block).parent();
-    var lang = pre.attr('lang');
-    pre.find("code").addClass(lang);
-    hljs.highlightBlock(pre[0]);
+    //var pre = $(block).parent();
+    //var lang = pre.attr('lang');
+    //pre.find("code").addClass(lang);
+    hljs.highlightBlock(block);
   });
-  */
 });

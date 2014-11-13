@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   before_action :load_post, only: [:show]
 
   def index
-
   end
 
   def show
@@ -14,7 +13,7 @@ class PostsController < ApplicationController
   protected
 
   def load_post
-    scope = logged_in? ? Post.published : Post
+    scope = logged_in? ? Post : Post.published
     @post = scope.where(slug: params[:id]).first || scope.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
