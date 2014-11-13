@@ -11,8 +11,10 @@
   %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
   %meta{property: "og:type", content: "website"}
 
-%h1= @post.title
-- if @post.subtitle.present?
-  %p.subtitle= @post.subtitle
+.post
+  %h1= @post.title
+  - if @post.subtitle.present?
+    %p.subtitle= @post.subtitle
 
-~ parse_body(@post.body)
+  .body
+    ~ parse_body(@post.body)
