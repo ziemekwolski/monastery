@@ -7,4 +7,8 @@ class PagesController < ApplicationController
     @posts = Post.listed_posts.limit(10)
   end
 
+  def robots
+    render layout: false
+  end
+
 end

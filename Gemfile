@@ -66,3 +66,6 @@ gem 'codemirror-rails', '~> 4.5'
 gem 'nokogiri', '~> 1.6.4.1'
 gem 'quiet_assets', group: :development
 gem 'rails_12factor', group: :production
+gem 'sitemap_generator', '~> 5.0.5'
+gem 'fog', '~> 1.24.0'
+gem 'dotenv-rails', groups: [:development, :test]

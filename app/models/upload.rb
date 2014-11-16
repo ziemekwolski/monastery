@@ -50,8 +50,9 @@ class Upload < ActiveRecord::Base
       nil
     end
 
-    def reprocess_style(style)
-      Upload.find_each do |upload|
+    def reprocess_style(style, scope = nil)
+      scope ||= Upload
+      scope.find_each do |upload|
         upload.file.reprocess! style.to_sym
       end
     end

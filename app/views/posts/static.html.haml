@@ -1,4 +1,4 @@
-- content_for :hero_image, @post.upload.file.url(:square_1440)
+- content_for :hero_image, @post.upload.file.url(:wide_1440)
 - content_for :page_title, @post.title
 - content_for :meta_tags do
   - description = @post.seo_description.present? ? @post.seo_description : @post.summary

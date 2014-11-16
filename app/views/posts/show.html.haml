@@ -19,6 +19,9 @@
     %i.link-spacer
     By
     = @post.user.name
+    - if @post.published_at.present?
+      %i.link-spacer
+      = @post.published_at.strftime("%B #{@post.published_at.day.ordinalize}, %Y")
     %img.user-icon.user-1{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
 
   = Setting.get(:social_share_code).html_safe

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
   resources :categories, only: [:index, :show]
 
+  get 'robots', to: 'pages#robots', as: :robots
+
   # Logging in/out
   get 'login',  to: 'user_sessions#new',     as: :login
   post 'login', to: 'user_sessions#create'
