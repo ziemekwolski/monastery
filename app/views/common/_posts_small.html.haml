@@ -1,0 +1,19 @@
+.favorite-posts.clearfix.animated.fadeIn
+  %section
+    - posts.each do |post|
+      .post-favorite.col-xs-12.col-sm-6.no-gutter
+        %h2
+          = link_to post.title, post_path(post)
+        %p
+          - if post.summary.present?
+            = post.summary.html_safe
+          - else
+            = truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
+        %p.meta
+          In
+          = link_to post.category.name, category_path(post.category)
+          %i.link-spacer
+          By
+          = post.user.name
+          %i.link-spacer
+          = post.published_at.strftime("%B #{post.published_at.day.ordinalize}, %Y")
