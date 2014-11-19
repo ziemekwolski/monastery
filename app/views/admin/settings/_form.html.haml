@@ -11,6 +11,8 @@
           = f.input :value, as: :text, input_html: {class: "codemirror"}
         - elsif @setting.image?
           = f.input :value, as: :hidden
+        - elsif @setting.boolean?
+          = f.input :value, as: :boolean, wrapper: :inline_checkbox, label: @setting.name
         - else
           = f.input :value
     .row

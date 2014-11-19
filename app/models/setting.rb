@@ -35,19 +35,6 @@ class Setting < ActiveRecord::Base
 
   # == Class Methods ========================================================
 
-  def self.init_settings
-    InitSettings.defaults.each do |init_setting|
-      unless self.by_key(init_setting.key).exists?
-        self.create!({
-          key: init_setting.key,
-          name: init_setting.name,
-          data_type: init_setting.data_type,
-          description: init_setting.description
-        })
-      end
-    end
-  end
-
   def self.get(key)
     setting = self.by_key(key).first
 
@@ -56,6 +43,8 @@ class Setting < ActiveRecord::Base
         raise "Setting with key #{key} was not found."
       when setting.reference? || setting.image?
         setting.load_reference
+      when setting.boolean?
+        setting.value == "1"
       else
         setting.value.to_s
     end
@@ -81,6 +70,19 @@ class Setting < ActiveRecord::Base
 
   def image?
     data_type == "image"
+  end
+
+  def boolean?
+    data_type == "boolean"
+  end
+
+  def to_s
+    case
+    when boolean?
+      value == "1" ? "True" : "False"
+    else
+      value.to_s
+    end
   end
 
   def load_reference
