@@ -5,6 +5,18 @@ GIT
     active_model_serializers (0.10.0.pre)
       activemodel (>= 4.0)
 
+PATH
+  remote: /Users/lhalliday/Sites/idioma
+  specs:
+    idioma (0.1.0)
+      bootstrap-sass (>= 3.3)
+      coffee-rails (>= 4.0)
+      haml (>= 4.0)
+      jquery-rails (>= 3.1)
+      pg (>= 0.17)
+      rails (>= 4.0)
+      will_paginate (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,7 +69,7 @@ GEM
     bcrypt (3.1.7)
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.2)
+    bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
     builder (3.2.2)
     byebug (3.5.1)
@@ -252,6 +264,7 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     redcarpet (3.2.0)
+    redis (3.1.0)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -318,7 +331,7 @@ DEPENDENCIES
   annotate
   autoprefixer-rails
   aws-sdk
-  bootstrap-sass (~> 3.2.0.2)
+  bootstrap-sass (~> 3.3.1.0)
   byebug
   codemirror-rails (~> 4.5)
   coffee-rails (~> 4.0.0)
@@ -328,6 +341,7 @@ DEPENDENCIES
   font-awesome-rails (~> 4.2.0.0)
   github-markdown (~> 0.6.7)
   haml-rails (~> 0.5.3)
+  idioma!
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.0.beta2)
   jquery-turbolinks
@@ -341,6 +355,7 @@ DEPENDENCIES
   rails_12factor
   ransack (~> 1.4.1)
   redcarpet (~> 3.2.0)
+  redis (~> 3.1.0)
   rspec
   sass-rails (~> 5.0.0.beta1)
   sdoc (~> 0.4.0)

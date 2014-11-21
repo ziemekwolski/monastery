@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20141112123915) do
     t.boolean  "is_listed",   default: true, null: false
   end
 
+  create_table "idioma_phrases", force: true do |t|
+    t.string   "locale"
+    t.string   "i18n_key"
+    t.text     "i18n_value"
+    t.datetime "translated_at"
+    t.datetime "flagged_at"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "slug",                            null: false
     t.string   "title",                           null: false

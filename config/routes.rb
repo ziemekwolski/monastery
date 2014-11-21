@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'posts#index'
-    resources :posts
-    resources :categories
-    resources :users
+    resources :posts, except: [:show]
+    resources :categories, except: [:show]
+    resources :users, except: [:show]
     resources :uploads, only: [:index, :show, :update, :create]
     resources :settings, only: [:index, :edit, :update]
+    mount Idioma::Engine => "/idioma"
   end
 
   get "/:id", to: "posts#show", as: :page

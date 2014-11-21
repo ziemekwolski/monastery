@@ -20,6 +20,12 @@ module Paisita
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.enforce_available_locales = false
+    config.default_locale = Idioma.configuration.default_locale
+    config.i18n.fallbacks = Idioma.configuration.locales.each_with_object({}) do |locale, hsh|
+      hsh[locale] = Idioma.configuration.default_locale
+    end
+
     config.autoload_paths += %W(
       #{config.root}/app/serializers
     )

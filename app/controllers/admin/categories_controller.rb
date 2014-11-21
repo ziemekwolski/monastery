@@ -10,11 +10,6 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = @search.result.paginate(page: params[:page])
   end
 
-  # GET /admin/categories/1
-  # GET /admin/categories/1.json
-  def show
-  end
-
   # GET /admin/categories/new
   def new
     @category = Category.new

@@ -12,14 +12,14 @@
         %p
           %a.btn.btn-success.fileinput-button{data: {upload_url: admin_uploads_path, selector: "#image_id", target: "#setting_value", upload_type: "setting"}}
             %i.glyphicon.glyphicon-plus
-            %span Browse or Upload Media
+            %span= t('admin.media.browse_or_upload')
             %input{id: "image_id", type: "file", name: "upload[file]"}
 
         - if upload.present?
           %p
             %a.btn.btn-danger.delete-image{data: {selector: "#image_id", target: "#setting_value"}}
               %i.glyphicon.glyphicon-trash
-              %span Delete
+              %span= t('admin.delete')
 
       .col-lg-6
         - if upload.present?

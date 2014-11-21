@@ -43,7 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'bootstrap-sass', '~> 3.2.0.2'
+gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'simple_form', '~> 3.0.2'
 gem 'autoprefixer-rails'
 gem 'haml-rails', '~> 0.5.3'
@@ -69,3 +69,6 @@ gem 'rails_12factor', group: :production
 gem 'sitemap_generator', '~> 5.0.5'
 gem 'fog', '~> 1.24.0'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'redis', '~> 3.1.0'
+#gem 'idioma', git: 'https://github.com/leighhalliday/idioma'
+gem 'idioma', path: "/Users/lhalliday/Sites/idioma"

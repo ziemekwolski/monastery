@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home: "Home"
+  posts: "Posts"
+  categories: "Categories"
+  no_category_posts: "There are no posts in this category yet."
+  other_categories: "Other Categories"

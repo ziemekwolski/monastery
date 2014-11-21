@@ -4,11 +4,11 @@
   .row
     .col-lg-6
 
-      = f.input :slug
-      = f.input :name
-      = f.input :description
+      = f.input :slug, label: t('admin.category.slug')
+      = f.input :name, label: t('admin.category.name')
+      = f.input :description, label: t('admin.category.description')
       = f.input :upload_id, as: :hidden
-      = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox
+      = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox, label: t('admin.category.is_listed')
 
       .actions
-        = f.submit 'Save', class: "btn btn-primary"
+        = f.submit t('admin.save'), class: "btn btn-primary"

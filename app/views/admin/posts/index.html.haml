@@ -1,19 +1,19 @@
 .row
   .col-lg-12
     %h1.page-header
-      Posts
+      = t('admin.posts')
       .pull-right
-        = link_to 'New Post', new_admin_post_path, class: "btn btn-primary"
+        = link_to t('admin.new'), new_admin_post_path, class: "btn btn-primary"
 
     .page-header__search-body
       = search_form_for [:admin, @search], :builder => SimpleForm::FormBuilder do |f|
         .form-group
           .input-group
-            = f.input :title_cont, label: "Search", required: false
+            = f.input :title_cont, label: t('admin.search'), required: false
         .form-group
           .input-group
             %span.input-group-btn
-              = f.submit "Go", class: "btn btn-default"
+              = f.submit t('admin.go'), class: "btn btn-default"
 
     = will_paginate @posts
 
@@ -21,11 +21,11 @@
       %tr
         %th
         %th
-        %th= sort_link @search, :title, "Title"
-        %th Author
-        %th Category
-        %th= sort_link @search, :published_at, "Published"
-        %th Listed?
+        %th= sort_link @search, :title, t('admin.post.title')
+        %th= t('admin.post.author')
+        %th= t('admin.post.category')
+        %th= sort_link @search, :published_at, t('admin.post.is_published')
+        %th= t('admin.post.is_listed')
         %th
       - @posts.each do |post|
         %tr
@@ -37,5 +37,5 @@
           %td= post.user.try(:name)
           %td= post.category.try(:name)
           %td= post.published_at
-          %td= post.is_listed ? "Yes" : "No"
-          %td= link_to 'Edit', edit_admin_post_path(post), class: "btn btn-default"
+          %td= post.is_listed ? t('admin.ans_yes') : t('admin.ans_no')
+          %td= link_to t('admin.edit'), edit_admin_post_path(post), class: "btn btn-default"

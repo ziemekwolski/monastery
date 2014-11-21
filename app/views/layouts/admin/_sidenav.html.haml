@@ -3,19 +3,22 @@
     %li
       = link_to root_path do
         %i.fa.fa-fw.fa-home
-        Website
+        = t('admin.website')
       = link_to admin_root_path do
         %i.fa.fa-fw.fa-dashboard
-        Dashboard
+        = t('admin.dashboard')
       = link_to admin_posts_path do
         %i.fa.fa-fw.fa-list
-        Posts
+        = t('admin.posts')
       = link_to admin_users_path do
         %i.fa.fa-fw.fa-users
-        User
+        = t('admin.users')
       = link_to admin_categories_path do
         %i.fa.fa-fw.fa-list
-        Categories
+        = t('admin.categories')
       = link_to admin_settings_path do
         %i.fa.fa-fw.fa-list
-        Settings
+        = t('admin.settings')
+      = link_to admin_idioma_path do
+        %i.fa.fa-fw.fa-list
+        Idioma

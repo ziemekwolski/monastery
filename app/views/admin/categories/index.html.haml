@@ -1,27 +1,27 @@
 .row
   .col-lg-12
     %h1.page-header
-      Categories
+      = t('admin.categories')
       .pull-right
-        = link_to 'New Category', new_admin_category_path, class: "btn btn-primary"
+        = link_to t('admin.new'), new_admin_category_path, class: "btn btn-primary"
 
     .page-header__search-body
       = search_form_for [:admin, @search], :builder => SimpleForm::FormBuilder do |f|
         .form-group
           .input-group
-            = f.input :name_cont, label: "Search", required: false
+            = f.input :name_cont, label: t('admin.search'), required: false
         .form-group
           .input-group
             %span.input-group-btn
-              = f.submit "Go", class: "btn btn-default"
+              = f.submit t('admin.go'), class: "btn btn-default"
 
     = will_paginate @categories
 
     %table.table.table-hover
       %tr
-        %th Name
+        %th= t('admin.category.name')
         %th
       - @categories.each do |category|
         %tr
           %td= category.name
-          %td= link_to 'Edit', edit_admin_category_path(category), class: "btn btn-default"
+          %td= link_to t('admin.edit'), edit_admin_category_path(category), class: "btn btn-default"

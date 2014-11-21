@@ -1,8 +1,12 @@
 %ul
   %li
     %i.entypo-home
-    = link_to "Home", root_path
+    = link_to t('home'), root_path
   - Post.nav_posts.each do |post|
     %li
-      %i.entypo-tag
-      = link_to post.title, page_url(post)
+      %i.entypo-browser
+      = link_to post.title, page_path(post)
+  - Category.listed.each do |category|
+    %li
+      %i.entypo-browser
+      = link_to category.name, category_path(category)

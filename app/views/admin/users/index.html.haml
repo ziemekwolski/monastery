@@ -1,30 +1,30 @@
 .row
   .col-lg-12
     %h1.page-header
-      Users
+      = t('admin.users')
       .pull-right
-        = link_to 'New User', new_admin_user_path, class: "btn btn-primary"
+        = link_to t('admin.new'), new_admin_user_path, class: "btn btn-primary"
 
     .page-header__search-body
       = search_form_for [:admin, @search], :builder => SimpleForm::FormBuilder do |f|
         .form-group
           .input-group
-            = f.input :name_or_email_cont, label: "Search", required: false, as: :string
+            = f.input :name_or_email_cont, label: t('admin.search'), required: false, as: :string
         .form-group
           .input-group
             %span.input-group-btn
-              = f.submit "Go", class: "btn btn-default"
+              = f.submit t('admin.go'), class: "btn btn-default"
 
     = will_paginate @users
 
     %table.table.table-hover
       %tr
-        %th Name
-        %th Email
+        %th= t('admin.user.name')
+        %th= t('admin.user.email')
         %th
 
       - @users.each do |user|
         %tr
           %td= user.name
           %td= user.email
-          %td= link_to 'Edit', edit_admin_user_path(user), class: "btn btn-default"
+          %td= link_to t('admin.edit'), edit_admin_user_path(user), class: "btn btn-default"

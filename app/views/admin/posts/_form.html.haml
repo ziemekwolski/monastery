@@ -4,22 +4,22 @@
   = simple_form_for [:admin, @post] do |f|
     .row
       .col-lg-6
-        = f.input :title
-        = f.input :subtitle
-        = f.input :summary
+        = f.input :title, label: t('admin.post.title')
+        = f.input :subtitle, label: t('admin.post.subtitle')
+        = f.input :summary, label: t('admin.post.summary')
       .col-lg-6
         .row
           .col-lg-6
-            = f.input :is_static, as: :boolean, wrapper: :inline_checkbox
-            = f.input :published, as: :boolean, wrapper: :inline_checkbox
+            = f.input :is_static, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_static')
+            = f.input :published, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_published')
           .col-lg-6
             .category
-              = f.input :user_id, collection: User.for_select
-              = f.input :category_id, collection: Category.for_select
-            = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox
+              = f.input :user_id, collection: User.for_select, label: t('admin.post.author')
+              = f.input :category_id, collection: Category.for_select, label: t('admin.post.category')
+            = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_listed')
         .row
           .col-lg-12
-            = f.input :slug
+            = f.input :slug, label: t('admin.post.slug')
 
     .row
       .col-lg-12
@@ -31,15 +31,15 @@
     .row
       .col-lg-6
         .source
-          = f.input :source_url
-          = f.input :source_name
+          = f.input :source_url, label: t('admin.post.source_url')
+          = f.input :source_name, label: t('admin.post.source_name')
       .col-lg-6
         .seo
-          = f.input :seo_tags
-          = f.input :seo_description
+          = f.input :seo_tags, label: t('admin.post.seo_tags')
+          = f.input :seo_description, label: t('admin.post.seo_description')
 
     .row
       .col-lg-6
         .actions
           = f.input :upload_id, as: :hidden
-          = f.submit 'Save', class: "btn btn-primary"
+          = f.submit t('admin.save'), class: "btn btn-primary"

@@ -1,8 +1,8 @@
 .row
   .col-lg-12
     %h1.page-header
-      Editing #{@category.name}
+      = t('admin.editing', name: @category.name)
       .pull-right
-        = link_to "View", category_path(@category), class: "btn btn-default", target: "_blank"
+        = link_to t('admin.view'), category_path(@category), class: "btn btn-default", target: "_blank"
 
 = render 'form'

@@ -4,7 +4,7 @@
 
 .row
   .favorites
-    %h2 Articles
+    %h2= t('posts')
 
   .favorite-posts.clearfix.animated.fadeIn
     %section
@@ -18,11 +18,11 @@
               = truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
       - if @posts.empty?
         .post-favorite.col-xs-12.col-sm-12.no-gutter
-          %h2 There are no article in this category yet.
+          %h2= t('no_category_posts')
 
   - if @other_categories.exists?
     .favorites
-      %h2 Other Categories
+      %h2= t('other_categories')
 
     .favorite-categories.clearfix.animated.fadeIn
       .category.row

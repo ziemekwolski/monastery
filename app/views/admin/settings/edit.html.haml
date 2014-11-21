@@ -1,7 +1,7 @@
 .row
   .col-lg-12
     %h1.page-header
-      Editing #{@setting.name}
+      = t('admin.editing', name: @setting.name)
 
     %p= @setting.description
 

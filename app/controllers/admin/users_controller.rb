@@ -10,11 +10,6 @@ class Admin::UsersController < Admin::BaseController
     @users = @search.result.paginate(page: params[:page])
   end
 
-  # GET /admin/users/1
-  # GET /admin/users/1.json
-  def show
-  end
-
   # GET /admin/users/new
   def new
     @user = User.new

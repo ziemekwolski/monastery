@@ -3,13 +3,13 @@
 = simple_form_for [:admin, @user] do |f|
   .row
     .col-lg-6
-      = f.input :name
-      = f.input :email
-      = f.input :password
-      = f.input :linkedin
-      = f.input :twitter
-      = f.input :github
+      = f.input :name, label: t('admin.user.name')
+      = f.input :email, label: t('admin.user.email')
+      = f.input :password, label: t('admin.user.password')
+      = f.input :linkedin, label: t('admin.user.linkedin')
+      = f.input :twitter, label: t('admin.user.twitter')
+      = f.input :github, label: t('admin.user.github')
       = f.input :upload_id, as: :hidden
 
       .actions
-        = f.submit 'Save', class: "btn btn-primary"
+        = f.submit t('admin.save'), class: "btn btn-primary"

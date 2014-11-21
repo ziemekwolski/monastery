@@ -1,0 +1,58 @@
+en:
+  admin:
+    title: "Blog Admin"
+    logout: "Logout"
+    settings: "Settings"
+    website: "Website"
+    dashboard: "Dashboard"
+    posts: "Posts"
+    users: "Users"
+    categories: "Categories"
+    save: "Save"
+    view: "View"
+    editing: "Editing %{name}"
+    new: "New"
+    go: "Go"
+    search: "Search"
+    cancel: "Cancel"
+    ans_yes: "Yes"
+    ans_no: "No"
+    delete: "Delete"
+
+    category:
+      new: "New Category"
+      slug: "Slug"
+      name: "Name"
+      description: "Description"
+      is_listed: "Is Listed?"
+
+    post:
+      title: "Title"
+      subtitle: "Subtitle"
+      summary: "Summary"
+      is_static: "Is Static?"
+      is_published: "Is Published?"
+      author: "Author"
+      category: "Category"
+      is_listed: "Is Listed?"
+      slug: "Slug"
+      source_url: "Source URL"
+      source_name: "Source Name"
+      seo_tags: "SEO Tags"
+      seo_description: "SEO Description"
+
+    setting:
+      name: "Name"
+      value: "Value"
+
+    media:
+      browse_or_upload: "Browse Or Upload Media"
+
+    user:
+      new: "New User"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      linkedin: "LinkedIn"
+      twitter: "Twitter"
+      github: "GitHub"
