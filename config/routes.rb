@@ -1,27 +1,29 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
-  resources :posts, only: [:index, :show]
-  resources :categories, only: [:index, :show]
+  scope "(:locale)", locale: /#{Idioma.conf.locales.join("|")}/ do
+    root 'pages#home'
+    resources :posts, only: [:index, :show]
+    resources :categories, only: [:index, :show]
 
-  get 'robots', to: 'pages#robots', as: :robots
+    get 'robots', to: 'pages#robots', as: :robots
 
-  # Logging in/out
-  get 'login',  to: 'user_sessions#new',     as: :login
-  post 'login', to: 'user_sessions#create'
-  get 'logout', to: 'user_sessions#destroy', as: :logout
+    # Logging in/out
+    get 'login',  to: 'user_sessions#new',     as: :login
+    post 'login', to: 'user_sessions#create'
+    get 'logout', to: 'user_sessions#destroy', as: :logout
 
-  namespace :admin do
-    root 'posts#index'
-    resources :posts, except: [:show]
-    resources :categories, except: [:show]
-    resources :users, except: [:show]
-    resources :uploads, only: [:index, :show, :update, :create]
-    resources :settings, only: [:index, :edit, :update]
-    mount Idioma::Engine => "/idioma"
+    namespace :admin do
+      root 'posts#index'
+      resources :posts, except: [:show]
+      resources :categories, except: [:show]
+      resources :users, except: [:show]
+      resources :uploads, only: [:index, :show, :update, :create]
+      resources :settings, only: [:index, :edit, :update]
+      mount Idioma::Engine => "/idioma"
+    end
+
+    get "/:id", to: "posts#show", as: :page
   end
-
-  get "/:id", to: "posts#show", as: :page
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,9 @@
+.select-locale
+  - links = []
+  - Idioma.conf.locales.each do |locale|
+    - language = Language.native_name(locale).capitalize
+    - if locale.to_s == I18n.locale.to_s
+      - links << "<strong>#{language}</strong>"
+    - else
+      - links << link_to(language, root_path(locale: locale))
+  = links.join(" | ").html_safe

@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.locale = Idioma.configuration.default_locale
+    I18n.locale = params.fetch(:locale) { Idioma.configuration.default_locale }
+  end
+
+  def default_url_options(options={})
+    options.merge({ locale: I18n.locale })
   end
 end

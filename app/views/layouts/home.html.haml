@@ -30,6 +30,9 @@
               %p= Setting.get(:short_desc)
 
         .col-md-7.col-sm-12.col-md-offset-5.main-content
+
+          = render partial: "common/select_locale"
+
           = yield
 
           = render partial: "common/footer"
