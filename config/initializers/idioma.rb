@@ -1,4 +1,9 @@
-$redis = Redis.new(:host => 'localhost', :port => 6379)
+$redis = if Rails.env.development?
+  Redis.new(:host => 'localhost', :port => 6379)
+else
+  Redis.new(:host => ENV["REDISCLOUD_URL"])
+end
+
 I18n.backend = I18n::Backend::KeyValue.new($redis)
 
 Idioma.configure do |configure|
