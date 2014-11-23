@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 ruby "2.1.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta4'
+gem 'rails', '4.1.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails', '~> 4.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -13,7 +13,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jQuery as the JavaScript library
-gem 'jquery-rails', '~> 4.0.0.beta2'
+gem 'jquery-rails', '~> 3.1.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # For dealing with some jquery/turbolinks weirdness
@@ -37,7 +37,7 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0.0.beta4'
+  gem 'web-console', '~> 1.0.4'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -72,3 +72,4 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'redis', '~> 3.1.0'
 #gem 'idioma', git: 'https://github.com/leighhalliday/idioma'
 gem 'idioma', path: "/Users/lhalliday/Sites/idioma"
+gem 'globalize', '~> 4.0.2'

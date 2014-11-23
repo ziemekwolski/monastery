@@ -41,5 +41,6 @@
   .single-footer
     = render partial: "common/user_social", locals: {user: @post.user}
 
-  - if @other_posts.present?
-    = render partial: "common/posts_small", locals: {posts: @other_posts}
+  - other_posts = find_other_posts(@post)
+  - if other_posts.present?
+    = render partial: "common/posts_small", locals: {posts: other_posts}

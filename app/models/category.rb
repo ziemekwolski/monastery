@@ -20,6 +20,8 @@ class Category < ActiveRecord::Base
 
   # == Extensions ===========================================================
 
+  translates :name, :description
+
   # == Relationships ========================================================
 
   has_many :posts

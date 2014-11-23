@@ -64,5 +64,26 @@ module ApplicationHelper
     scope.limit(10)
   end
 
+  def locale_links
+    Idioma.conf.locales.each_with_object([]) do |locale, ary|
+      language = Language.native_name(locale).capitalize
+      ary << if locale.to_s == I18n.locale.to_s
+        language
+      else
+        link_to(language, params.merge(locale: locale))
+      end
+    end
+  end
+
+  def admin_locale_links
+    Idioma.conf.locales.each_with_object([]) do |locale, ary|
+      language = Language.native_name(locale).capitalize
+      ary << link_to(language, params.merge(locale: locale))
+    end
+  end
+
+  def find_other_posts(post)
+    Post.listed_posts.where("id != ?", @post.id).limit(2)
+  end
 
 end

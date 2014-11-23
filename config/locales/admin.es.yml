@@ -1,0 +1,59 @@
+es:
+  admin:
+    title: "Administración"
+    logout: "Salir"
+    settings: "Configuraciones"
+    website: "Website"
+    dashboard: "Dashboard"
+    posts: "Artículos"
+    users: "Usuarios"
+    categories: "Categorías"
+    save: "Guardar"
+    view: "Ver"
+    editing: "Editando %{name}"
+    new: "Nuevo"
+    go: "Ir"
+    search: "Buscar"
+    cancel: "Cancelar"
+    ans_yes: "Si"
+    ans_no: "No"
+    delete: "Borrar"
+    edit: "Editar"
+
+    category:
+      new: "Nueva Categoría"
+      slug: "Slug"
+      name: "Nombre"
+      description: "Descripción"
+      is_listed: "Es Visible?"
+
+    post:
+      title: "Título"
+      subtitle: "Subtítulo"
+      summary: "Resumen"
+      is_static: "Es Estático?"
+      is_published: "Es Publicado?"
+      author: "Autor"
+      category: "Categoría"
+      is_listed: "Es Visible?"
+      slug: "Slug"
+      source_url: "Fuente URL"
+      source_name: "Fuente Nombre"
+      seo_tags: "SEO Etiquetas"
+      seo_description: "SEO Descripción"
+
+    setting:
+      name: "Nombre"
+      value: "Valor"
+
+    media:
+      browse_or_upload: "Navegar o Subir Fotos"
+
+    user:
+      new: "Nuevo Usuario"
+      name: "Nombre"
+      email: "Correo Electronico"
+      password: "Contraseña"
+      linkedin: "LinkedIn"
+      twitter: "Twitter"
+      github: "GitHub"

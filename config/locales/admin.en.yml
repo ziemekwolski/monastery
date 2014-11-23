@@ -18,6 +18,7 @@ en:
     ans_yes: "Yes"
     ans_no: "No"
     delete: "Delete"
+    edit: "Edit"
 
     category:
       new: "New Category"

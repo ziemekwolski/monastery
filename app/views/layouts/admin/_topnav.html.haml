@@ -18,6 +18,11 @@
           %a{:href => edit_admin_user_path(current_user)}
             %i.fa.fa-fw.fa-gear
             = t('admin.settings')
+        - if Setting.get(:i18n_activated)
+          %li.divider
+          - admin_locale_links.each do |link|
+            %li
+              = link.html_safe
         %li.divider
         %li
           %a{:href => logout_path}

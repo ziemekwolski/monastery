@@ -7,16 +7,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    load_other_posts unless @post.is_static?
-
     render @post.is_static? ? "static" : "show"
   end
 
   protected
-
-  def load_other_posts
-    @other_posts = Post.listed_posts.where("id != ?", @post.id).limit(2)
-  end
 
   def load_post
     scope = logged_in? ? Post : Post.published

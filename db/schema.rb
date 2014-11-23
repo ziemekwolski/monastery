@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112123915) do
+ActiveRecord::Schema.define(version: 20141122214500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20141112123915) do
     t.boolean  "is_listed",   default: true, null: false
   end
 
+  create_table "category_translations", force: true do |t|
+    t.integer  "category_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+  end
+
+  add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id", using: :btree
+  add_index "category_translations", ["locale"], name: "index_category_translations_on_locale", using: :btree
+
   create_table "idioma_phrases", force: true do |t|
     t.string   "locale"
     t.string   "i18n_key"
@@ -36,6 +48,22 @@ ActiveRecord::Schema.define(version: 20141112123915) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "post_translations", force: true do |t|
+    t.integer  "post_id",         null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "summary"
+    t.text     "body"
+    t.text     "seo_description"
+    t.string   "seo_tags"
+  end
+
+  add_index "post_translations", ["locale"], name: "index_post_translations_on_locale", using: :btree
+  add_index "post_translations", ["post_id"], name: "index_post_translations_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "slug",                            null: false
@@ -57,6 +85,17 @@ ActiveRecord::Schema.define(version: 20141112123915) do
     t.boolean  "is_listed",       default: true,  null: false
     t.string   "seo_tags"
   end
+
+  create_table "setting_translations", force: true do |t|
+    t.integer  "setting_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "value"
+  end
+
+  add_index "setting_translations", ["locale"], name: "index_setting_translations_on_locale", using: :btree
+  add_index "setting_translations", ["setting_id"], name: "index_setting_translations_on_setting_id", using: :btree
 
   create_table "settings", force: true do |t|
     t.string   "key"

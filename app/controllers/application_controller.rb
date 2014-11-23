@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options={})
-    options.merge({ locale: I18n.locale })
+    default_options = if Setting.get(:i18n_activated)
+      { locale: I18n.locale }
+    else
+      { locale: nil }
+    end
+    default_options.merge(options)
   end
 end

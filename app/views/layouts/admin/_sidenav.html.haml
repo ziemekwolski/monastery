@@ -19,6 +19,7 @@
       = link_to admin_settings_path do
         %i.fa.fa-fw.fa-list
         = t('admin.settings')
-      = link_to admin_idioma_path do
-        %i.fa.fa-fw.fa-list
-        Idioma
+      - if Setting.get(:i18n_activated)
+        = link_to admin_idioma_path do
+          %i.fa.fa-fw.fa-list
+          Idioma

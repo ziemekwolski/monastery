@@ -3,7 +3,6 @@
 = simple_form_for([:admin, @category]) do |f|
   .row
     .col-lg-6
-
       = f.input :slug, label: t('admin.category.slug')
       = f.input :name, label: t('admin.category.name')
       = f.input :description, label: t('admin.category.description')
