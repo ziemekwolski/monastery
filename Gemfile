@@ -70,6 +70,6 @@ gem 'sitemap_generator', '~> 5.0.5'
 gem 'fog', '~> 1.24.0'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'redis', '~> 3.1.0'
-#gem 'idioma', git: 'https://github.com/leighhalliday/idioma'
-gem 'idioma', path: "/Users/lhalliday/Sites/idioma"
+gem 'idioma', '~> 0.1'
+#gem 'idioma', path: "/Users/lhalliday/Sites/idioma"
 gem 'globalize', '~> 4.0.2'

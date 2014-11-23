@@ -10,10 +10,4 @@
           - else
             = truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
         %p.meta
-          In
-          = link_to post.category.name, category_path(post.category)
-          %i.link-spacer
-          By
-          = post.user.name
-          %i.link-spacer
-          = post.published_at.strftime("%B #{post.published_at.day.ordinalize}, %Y")
+          = render partial: "common/post_meta", locals: {post: post}

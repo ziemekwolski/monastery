@@ -4,3 +4,5 @@ es:
   categories: "Categorías"
   no_category_posts: "No hay articulos en esta categoría todavía."
   other_categories: "Otras Categorías"
+  in_category: "En %{category}"
+  by_name: "Por %{name}"

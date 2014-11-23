@@ -14,14 +14,7 @@
 
 .post
   %p.meta
-    In
-    = link_to @post.category.name, category_path(@post.category)
-    %i.link-spacer
-    By
-    = @post.user.name
-    - if @post.published_at.present?
-      %i.link-spacer
-      = @post.published_at.strftime("%B #{@post.published_at.day.ordinalize}, %Y")
+    = render partial: "common/post_meta", locals: {post: @post}
     %img.user-icon.user-1{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
 
   = Setting.get(:social_share_code).html_safe

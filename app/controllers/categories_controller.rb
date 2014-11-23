@@ -8,7 +8,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @posts = @category.posts.listed_posts
+    scope = @category.posts.listed_posts
+    if Setting.get(:i18n_activated)
+      scope = scope.with_translations(I18n.locale)
+    end
+    @posts = scope
+
     @other_categories = Category.listed.where("categories.id != ?", @category.id)
   end
 

@@ -38,10 +38,11 @@ class Setting < ActiveRecord::Base
   # == Class Methods ========================================================
 
   def self.get(key)
-    if key == :i18n_default_locale
-      return self.i18n_default_locale
-    end
+    return self.i18n_default_locale if key == :i18n_default_locale
+    self.translated_get(key)
+  end
 
+  def self.translated_get(key)
     locale = SettingManager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
 
     Globalize.with_locale(locale) do

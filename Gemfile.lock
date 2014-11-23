@@ -5,18 +5,6 @@ GIT
     active_model_serializers (0.10.0.pre)
       activemodel (>= 4.0)
 
-PATH
-  remote: /Users/lhalliday/Sites/idioma
-  specs:
-    idioma (0.1.0)
-      bootstrap-sass (>= 3.3)
-      coffee-rails (>= 4.0)
-      haml (>= 4.0)
-      jquery-rails (>= 3.1)
-      pg (>= 0.17)
-      rails (>= 4.0)
-      will_paginate (>= 3.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -148,6 +136,14 @@ GEM
       railties (>= 4.0.1)
     hike (1.2.3)
     i18n (0.6.11)
+    idioma (0.1.1)
+      bootstrap-sass (>= 3.3)
+      coffee-rails (>= 4.0)
+      haml (>= 4.0)
+      jquery-rails (>= 3.1)
+      pg (>= 0.17)
+      rails (>= 4.0)
+      will_paginate (>= 3.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
     jbuilder (2.2.5)
@@ -307,7 +303,7 @@ DEPENDENCIES
   github-markdown (~> 0.6.7)
   globalize (~> 4.0.2)
   haml-rails (~> 0.5.3)
-  idioma!
+  idioma (~> 0.1)
   jbuilder (~> 2.0)
   jquery-rails (~> 3.1.2)
   jquery-turbolinks

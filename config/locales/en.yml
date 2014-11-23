@@ -25,3 +25,5 @@ en:
   categories: "Categories"
   no_category_posts: "There are no posts in this category yet."
   other_categories: "Other Categories"
+  in_category: "In %{category}"
+  by_name: "By %{name}"
