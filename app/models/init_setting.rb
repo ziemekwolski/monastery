@@ -1,7 +1,7 @@
 class InitSetting
 
   def self.load
-    Monestary::SETTINGS.each do |defaults|
+    Monastery::SETTINGS.each do |defaults|
       init_setting = new(defaults)
       init_setting.create_or_update!
     end
