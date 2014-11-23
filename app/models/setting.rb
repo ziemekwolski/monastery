@@ -49,7 +49,7 @@ class Setting < ActiveRecord::Base
       setting = self.by_key(key).first
       return case
         when setting.nil?
-          raise "Setting with key #{key} was not found."
+          SettingManager.load_default(key)
         when setting.reference? || setting.image?
           setting.load_reference
         when setting.boolean?

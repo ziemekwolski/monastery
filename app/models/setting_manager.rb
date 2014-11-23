@@ -1,13 +1,22 @@
 class SettingManager
 
   def self.setting_translatable?(key)
-    key = key.to_s
+    setting = self.find_setting(key)
+    setting["translatable"]
+  end
 
+  def self.load_default(key)
+    setting = self.find_setting(key)
+    setting["default"]
+  end
+
+  def self.find_setting(key)
+    key = key.to_s
     setting = Monastery::SETTINGS.find {|setting|
       setting["key"] == key
     }
-
-    setting["translatable"]
+    raise "Setting with key #{key} was not found." if setting.nil?
+    setting
   end
 
 end

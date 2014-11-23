@@ -13,7 +13,7 @@ namespace :seed do
 
   desc "Create initial settings"
   task settings: :environment do
-    Setting.init_settings
+    InitSetting.load
   end
 
 end
