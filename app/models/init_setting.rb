@@ -1,8 +1,7 @@
 class InitSetting
 
   def self.load
-    settings = YAML.load(File.open(Rails.root.join('config', 'settings.yml')))
-    settings.each do |defaults|
+    Monestary::SETTINGS.each do |defaults|
       init_setting = new(defaults)
       init_setting.create_or_update!
     end

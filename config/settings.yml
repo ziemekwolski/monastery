@@ -6,6 +6,7 @@
     data_type: "string"
     description: "Main website title."
     default: ~
+    translatable: true
   -
     section: "content"
     key: "short_desc"
@@ -13,6 +14,7 @@
     data_type: "string"
     description: "Short description displayed on home page."
     default: ~
+    translatable: true
   -
     section: "content"
     key: "main_image"
@@ -20,6 +22,15 @@
     data_type: "image"
     description: "Image used on home page."
     default: ~
+    translatable: false
+  -
+    section: "content"
+    key: "footer"
+    name: "Footer"
+    data_type: "code"
+    description: "Code for the footer of the website."
+    default: ~
+    translatable: true
   -
     section: "code"
     key: "header_code"
@@ -27,6 +38,7 @@
     data_type: "code"
     description: "Code that will be injected near the end of the head tag."
     default: ~
+    translatable: false
   -
     section: "code"
     key: "footer_code"
@@ -34,6 +46,7 @@
     data_type: "code"
     description: "Code that will be injected just before the closing body tag."
     default: ~
+    translatable: false
   -
     section: "code"
     key: "social_share_code"
@@ -41,6 +54,7 @@
     data_type: "code"
     description: "Code that will be placed anywhere that social sharing is needed."
     default: ~
+    translatable: false
   -
     section: "style"
     key: "heading_font"
@@ -48,6 +62,7 @@
     data_type: "string"
     description: "CSS Font-Family for the header tags (h1 - h6). Please ensure you've included the font file in the Header Code setting."
     default: ~
+    translatable: false
   -
     section: "style"
     key: "body_font"
@@ -55,6 +70,7 @@
     data_type: "string"
     description: "CSS Font-Family for the body (p) tags. Please ensure you've included the font file int he Header Code setting."
     default: ~
+    translatable: false
   -
     section: "i18n"
     key: "i18n_activated"
@@ -62,6 +78,7 @@
     data_type: "boolean"
     description: "Whether this website has translations."
     default: false
+    translatable: false
   -
     section: "i18n"
     key: "i18n_default_locale"
@@ -69,6 +86,7 @@
     data_type: "string"
     description: "The default locale that this website operates in."
     default: "en"
+    translatable: false
   -
     section: "i18n"
     key: "i18n_available_locales"
@@ -76,3 +94,4 @@
     data_type: "string"
     description: "A comma separated list of available languages."
     default: "en"
+    translatable: false

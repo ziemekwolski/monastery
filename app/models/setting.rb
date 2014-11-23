@@ -38,18 +38,35 @@ class Setting < ActiveRecord::Base
   # == Class Methods ========================================================
 
   def self.get(key)
-    setting = self.by_key(key).first
-
-    return case
-      when setting.nil?
-        raise "Setting with key #{key} was not found."
-      when setting.reference? || setting.image?
-        setting.load_reference
-      when setting.boolean?
-        setting.value == "1"
-      else
-        setting.value.to_s
+    if key == :i18n_default_locale
+      return self.i18n_default_locale
     end
+
+    locale = SettingManager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
+
+    Globalize.with_locale(locale) do
+      setting = self.by_key(key).first
+      return case
+        when setting.nil?
+          raise "Setting with key #{key} was not found."
+        when setting.reference? || setting.image?
+          setting.load_reference
+        when setting.boolean?
+          setting.value == "1"
+        else
+          setting.value.to_s
+      end
+    end
+  end
+
+  # This is a way to find the default locale without going through
+  # the normal Globalize way of looking it up.
+  def self.i18n_default_locale
+    self.where(key: :i18n_default_locale).pluck(:value).first
+  end
+
+  def self.key_from_id(id)
+    self.where(id: id).pluck(:key).first
   end
 
   # == Instance Methods =====================================================
@@ -81,7 +98,7 @@ class Setting < ActiveRecord::Base
   def to_s
     case
     when boolean?
-      value == "1" ? "True" : "False"
+      value == "1" ? I18n.t('admin.ans_yes') : I18n.t('admin.ans_no')
     else
       value.to_s
     end
