@@ -86,4 +86,12 @@ module ApplicationHelper
     Post.listed_posts.where("id != ?", @post.id).limit(2)
   end
 
+  def parse_summary(post)
+    if post.summary.present?
+      post.summary.html_safe
+    else
+      truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
+    end
+  end
+
 end

@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{Idioma.conf.locales.join("|")}/ do
     root 'pages#home'
     resources :posts, only: [:index, :show]
-    resources :categories, only: [:index, :show]
+    resources :categories, only: [:index, :show] do
+      resources :feeds, only: [:index], constraints: {format: :xml}
+    end
 
     get 'robots', to: 'pages#robots', as: :robots
+    resources :feeds, only: [:index], constraints: {format: :xml}
 
     # Logging in/out
     get 'login',  to: 'user_sessions#new',     as: :login

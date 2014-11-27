@@ -2,6 +2,8 @@
 - content_for :left_title, @category.name
 - content_for :left_desc, @category.description
 - content_for :left_image_url, @category.upload.file.url(:square_1440)
+- content_for(:auto_discovery_tags) do
+  = auto_discovery_link_tag(:atom, category_feeds_url(@category, format: :xml))
 
 .row
   .favorites
@@ -12,11 +14,7 @@
       - @posts.each do |post|
         .post-favorite.col-xs-12.col-sm-6.no-gutter
           %h2= link_to post.title, post_path(post)
-          %p
-            - if post.summary.present?
-              = post.summary.html_safe
-            - else
-              = truncate(strip_tags(GitHub::Markdown.render_gfm(post.body)), length: 300).html_safe
+          %p= parse_summary(post)
       - if @posts.empty?
         .post-favorite.col-xs-12.col-sm-12.no-gutter
           %h2= t('no_category_posts')

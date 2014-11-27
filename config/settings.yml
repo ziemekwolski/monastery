@@ -56,6 +56,14 @@
     default: ~
     translatable: false
   -
+    section: "code"
+    key: "post_footer_code"
+    name: "Post Footer Code"
+    data_type: "code"
+    description: "Code that will be rendered right below each post."
+    default: ~
+    translatable: true
+  -
     section: "style"
     key: "heading_font"
     name: "Heading Font"

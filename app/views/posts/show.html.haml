@@ -31,6 +31,8 @@
       Source:
       = link_to @post.source_name, @post.source_url, target: "_blank"
 
+  = Setting.get(:post_footer_code).html_safe
+
   .single-footer
     = render partial: "common/user_social", locals: {user: @post.user}
 
