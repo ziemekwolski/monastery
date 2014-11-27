@@ -3,7 +3,7 @@
 - content_for :left_desc, @category.description
 - content_for :left_image_url, @category.upload.file.url(:square_1440)
 - content_for(:auto_discovery_tags) do
-  = auto_discovery_link_tag(:atom, category_feeds_url(@category, format: :xml))
+  = auto_discovery_link_tag(:atom, category_feeds_url(@category, format: :xml), title: Setting.get(:title) + " - " + @category.name)
 
 .row
   .favorites

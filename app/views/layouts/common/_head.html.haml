@@ -7,7 +7,7 @@
   - if content_for?(:auto_discovery_tags)
     = content_for(:auto_discovery_tags)
   - else
-    = auto_discovery_link_tag(:atom, feeds_url(format: :xml))
+    = auto_discovery_link_tag(:atom, feeds_url(format: :xml), title: Setting.get(:title))
 
   - default_locale = Idioma.conf.default_locale
   %meta{property: "og:locale", content: default_locale}/
