@@ -6,3 +6,6 @@ es:
   other_categories: "Otras Categorías"
   in_category: "En %{category}"
   by_name: "Por %{name}"
+  view_more: "Ver Más"
+  newest: "Más Nuevo"
+  other_posts: "Otros artículos"

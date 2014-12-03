@@ -27,3 +27,6 @@ en:
   other_categories: "Other Categories"
   in_category: "In %{category}"
   by_name: "By %{name}"
+  view_more: "View More"
+  newest: "Newest"
+  other_posts: "Other posts you may enjoy"

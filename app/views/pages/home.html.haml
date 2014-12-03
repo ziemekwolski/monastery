@@ -3,6 +3,10 @@
   %a.select-categories{:href => "#"}= t('categories')
 .home-page-posts.animated.fadeIn
   = render partial: "common/posts", locals: {posts: @posts}
+  - if @posts_count > @posts_limit
+    .row
+      .col-md-12
+        = link_to t('view_more'), posts_path, class: "view-more text-center"
 
 .home-page-categories.hide.animated.fadeIn
   = render partial: "common/categories", locals: {categories: @categories}

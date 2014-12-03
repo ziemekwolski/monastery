@@ -1,0 +1,13 @@
+- content_for :page_title, t('posts')
+- content_for :left_title, Setting.get(:title)
+- content_for :left_desc, Setting.get(:short_desc)
+- content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
+
+.row
+  .favorites
+    %h2= t('posts')
+
+  .home-page-posts.animated.fadeIn
+    = render partial: "common/posts", locals: {posts: @posts}
+
+    = will_paginate(@posts)

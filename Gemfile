@@ -73,3 +73,5 @@ gem 'redis', '~> 3.1.0'
 gem 'idioma', '~> 0.1'
 #gem 'idioma', path: "/Users/lhalliday/Sites/idioma"
 gem 'globalize', '~> 4.0.2'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'will-paginate-i18n', '~> 0.1.15'

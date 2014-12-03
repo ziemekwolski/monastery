@@ -33,9 +33,16 @@
 
   = Setting.get(:post_footer_code).html_safe
 
-  .single-footer
-    = render partial: "common/user_social", locals: {user: @post.user}
+  = render partial: "common/user_social", locals: {user: @post.user}
 
-  - other_posts = find_other_posts(@post)
-  - if other_posts.present?
-    = render partial: "common/posts_small", locals: {posts: other_posts}
+  .row
+    .col-md-6
+      %h4= t('in_category', {category: @post.category.name})
+      %ul
+        - @other_category_posts.limit(5).each do |post|
+          %li= link_to post.title, post_path(post)
+    .col-md-6
+      %h4= t('newest')
+      %ul
+        - @other_posts.limit(5).each do |post|
+          %li= link_to post.title, post_path(post)

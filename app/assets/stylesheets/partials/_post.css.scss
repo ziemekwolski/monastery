@@ -1,7 +1,15 @@
 .post {
-  .body {
+  a {
+    color: $light-blue;
+    &:hover {
+      color: $light-grey;
+    }
+  }
+
+
+  p.meta {
     a {
-      color: #3366FF;
+      color: $light-grey;
     }
   }
 
@@ -20,5 +28,25 @@
   }
   a:hover {
     color: #FFFFFF;
+  }
+}
+
+.view-more {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 0px;
+  color: $light-blue;
+}
+
+.user-bio {
+  margin: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border: 1px solid $light-grey;
+
+  p {
+    margin: 0px;
   }
 }

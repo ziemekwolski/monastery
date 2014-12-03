@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   # == Extensions ===========================================================
 
   authenticates_with_sorcery!
+  translates :snippet
 
   # == Relationships ========================================================
 

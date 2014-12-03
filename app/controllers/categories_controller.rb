@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     if Setting.get(:i18n_activated)
       scope = scope.with_translations(I18n.locale)
     end
-    @posts = scope
+    @posts = scope.paginate(page: params[:page])
 
     @other_categories = Category.listed.where("categories.id != ?", @category.id)
   end

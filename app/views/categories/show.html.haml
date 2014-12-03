@@ -10,14 +10,12 @@
     %h2= t('posts')
 
   .favorite-posts.clearfix.animated.fadeIn
-    %section
-      - @posts.each do |post|
-        .post-favorite.col-xs-12.col-sm-6.no-gutter
-          %h2= link_to post.title, post_path(post)
-          %p= parse_summary(post)
-      - if @posts.empty?
-        .post-favorite.col-xs-12.col-sm-12.no-gutter
-          %h2= t('no_category_posts')
+    = render partial: "common/posts", locals: {posts: @posts}
+    = will_paginate(@posts)
+
+    - if @posts.empty?
+      .post-favorite.col-xs-12.col-sm-12.no-gutter
+        %h2= t('no_category_posts')
 
   - if @other_categories.exists?
     .favorites
