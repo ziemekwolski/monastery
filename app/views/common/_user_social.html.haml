@@ -1,7 +1,7 @@
 .row.user-bio
   .col-md-12
     %img.left-user-icon{:alt => user.name, :src => user.upload.file.url(:square_200)}/
-    %p= user.snippet
+    %p= user.snippet.html_safe
     .single-footer
       .social.clearfix
         - if user.twitter.present?
