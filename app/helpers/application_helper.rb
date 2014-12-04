@@ -82,10 +82,6 @@ module ApplicationHelper
     end
   end
 
-  def find_other_posts(post)
-    Post.listed_posts.where("id != ?", @post.id).limit(2)
-  end
-
   def parse_summary(post)
     if post.summary.present?
       post.summary.html_safe

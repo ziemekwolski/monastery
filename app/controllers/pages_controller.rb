@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  layout 'home'
+  layout 'other'
 
   def home
     @categories = Category.listed

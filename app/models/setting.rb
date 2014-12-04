@@ -43,13 +43,13 @@ class Setting < ActiveRecord::Base
   end
 
   def self.translated_get(key)
-    locale = SettingManager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
+    locale = Settings::Manager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
 
     Globalize.with_locale(locale) do
       setting = self.by_key(key).first
       return case
         when setting.nil?
-          SettingManager.load_default(key)
+          Settings::Manager.load_default(key)
         when setting.reference? || setting.image?
           setting.load_reference
         when setting.boolean?

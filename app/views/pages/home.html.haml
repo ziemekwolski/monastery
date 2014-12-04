@@ -1,3 +1,7 @@
+- content_for :left_title, Setting.get(:title)
+- content_for :left_desc, Setting.get(:short_desc)
+- content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
+
 .nav
   %a.select-posts.active{:href => "#"}= t('posts')
   %a.select-categories{:href => "#"}= t('categories')

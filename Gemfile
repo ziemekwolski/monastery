@@ -4,7 +4,7 @@ ruby "2.1.4"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.4'
+gem 'sass-rails', '~> 4.0.5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -41,37 +41,49 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'dotenv-rails'
 end
 
-gem 'bootstrap-sass', '~> 3.3.1.0'
-gem 'simple_form', '~> 3.0.2'
-gem 'autoprefixer-rails'
-gem 'haml-rails', '~> 0.5.3'
-gem 'annotate', group: :development
-gem 'rspec', group: :test
-gem 'pg'
-gem 'sorcery', '~> 0.8.6'
-gem 'font-awesome-rails', '~> 4.2.0.0'
-gem 'nprogress-rails' # turbolinks progress bar
-gem 'compass-rails' # css
-gem 'ransack', '~> 1.4.1'
-gem 'will_paginate', '~> 3.0.7'
-gem 'paperclip', '~> 4.2.0'
-gem 'aws-sdk', group: :production
-gem 'jquery.fileupload-rails'
+group :test do
+  # For testing
+  gem 'rspec-rails', '~> 3.1.0'
+end
+
+group :development do
+  gem 'annotate'
+  gem 'quiet_assets'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'aws-sdk'
+end
+
 gem 'active_model_serializers', git: "https://github.com/rails-api/active_model_serializers.git"
-gem 'github-markdown', '~> 0.6.7'
-gem 'redcarpet', '~> 3.2.0' # markdown
-gem 'codemirror-rails', '~> 4.5'
-gem 'nokogiri', '~> 1.6.4.1'
-gem 'quiet_assets', group: :development
-gem 'rails_12factor', group: :production
-gem 'sitemap_generator', '~> 5.0.5'
-gem 'fog', '~> 1.24.0'
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'redis', '~> 3.1.0'
-gem 'idioma', '~> 0.1'
 #gem 'idioma', path: "/Users/lhalliday/Sites/idioma"
-gem 'globalize', '~> 4.0.2'
+
+gem 'bootstrap-sass',          '~> 3.3.1'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
-gem 'will-paginate-i18n', '~> 0.1.15'
+gem 'simple_form',             '~> 3.0.2'
+gem 'autoprefixer-rails',      '~> 4.0.1'
+gem 'haml-rails',              '~> 0.5.3'
+gem 'pg',                      '~> 0.17.1'
+gem 'sorcery',                 '~> 0.8.6'
+gem 'font-awesome-rails',      '~> 4.2.0'
+gem 'nprogress-rails',         '~> 0.1.6' # turbolinks progress bar
+gem 'compass-rails'
+gem 'ransack',                 '~> 1.4.1'
+gem 'will_paginate',           '~> 3.0.7'
+gem 'will-paginate-i18n',      '~> 0.1.15'
+gem 'paperclip',               '~> 4.2.0'
+gem 'jquery.fileupload-rails', '~> 1.11.0'
+gem 'github-markdown',         '~> 0.6.7'
+gem 'redcarpet',               '~> 3.2.0' # markdown
+gem 'codemirror-rails',        '~> 4.8'
+gem 'nokogiri',                '~> 1.6.4'
+gem 'sitemap_generator',       '~> 5.0.5'
+gem 'fog',                     '~> 1.24.0'
+gem 'redis',                   '~> 3.1.0'
+gem 'idioma',                  '~> 0.1.0'
+gem 'globalize',               '~> 4.0.2'
