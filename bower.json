@@ -1,0 +1,6 @@
+{
+  "name": "Monastery",
+  "dependencies": {
+    "angular": "~> 1.3"
+  }
+}

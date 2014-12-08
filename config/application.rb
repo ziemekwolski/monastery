@@ -32,6 +32,7 @@ module Paisita
     )
 
     config.assets.precompile += ["codemirror*", "codemirror/**/*"]
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
 
     initializer 'setup_asset_pipeline', :group => :all  do |app|
       # We don't want the default of everything that isn't js or css, because it pulls too many things in

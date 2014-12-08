@@ -28,6 +28,8 @@
 //= require ./admin/post
 //= require ./admin/codemirror
 
+//= require angular
+
 NProgress.configure({
   showSpinner: false
 });

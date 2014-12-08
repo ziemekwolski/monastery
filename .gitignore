@@ -19,3 +19,5 @@
 /public/system
 
 .DS_Store
+
+vendor/assets/components
