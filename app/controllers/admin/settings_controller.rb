@@ -36,7 +36,7 @@ class Admin::SettingsController < Admin::BaseController
   # the default locale.
   def set_edit_locale
     key = Setting.key_from_id(params[:id])
-    @edit_locale = SettingManager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
+    @edit_locale = Settings::Manager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
   end
 
   # Use callbacks to share common setup or constraints between actions.
