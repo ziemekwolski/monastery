@@ -16,19 +16,17 @@
 //= require bootstrap-sprockets
 //= require nprogress
 //= require nprogress-turbolinks
-//= require jquery.fileupload
 //= require marked.min
 //= require vue.min
 //= require codemirror
 //= require codemirror/modes/xml
 //= require codemirror/modes/css
 //= require codemirror/modes/htmlmixed
-//= require ./admin/upload
-//= require ./admin/editor
-//= require ./admin/post
-//= require ./admin/codemirror
+//= require_tree ./admin
 
-//= require angular
+// Bower Components
+//= require angular/angular
+//= require ng-file-upload/angular-file-upload
 
 NProgress.configure({
   showSpinner: false

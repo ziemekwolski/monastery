@@ -1,0 +1,30 @@
+.gallery {
+  .navigation {
+    margin-bottom: 15px;
+  }
+
+  .img-container {
+    float: left;
+  }
+
+  .images img {
+    max-height: 75px;
+    max-width: 75px;
+    margin: 0xp;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 2px white solid;
+    &:hover {
+      border: 2px gray solid;
+    }
+  }
+
+  img.selected {
+    max-height: 125px;
+    max-width: 125px;
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}

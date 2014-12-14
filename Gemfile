@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.1.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.8'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.5'
 # Use Uglifier as compressor for JavaScript assets
@@ -77,7 +77,6 @@ gem 'ransack',                 '~> 1.4.1'
 gem 'will_paginate',           '~> 3.0.7'
 gem 'will-paginate-i18n',      '~> 0.1.15'
 gem 'paperclip',               '~> 4.2.0'
-gem 'jquery.fileupload-rails', '~> 1.11.0'
 gem 'github-markdown',         '~> 0.6.7'
 gem 'redcarpet',               '~> 3.2.0' # markdown
 gem 'codemirror-rails',        '~> 4.8'

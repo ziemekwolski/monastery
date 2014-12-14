@@ -1,0 +1,28 @@
+%div.uploader{"ng-app" => "fileUpload", "ng-controller" => "UploadController", "ng-init" => "initImage(#{upload_id})"}
+
+  .gallery
+    .row.navigation
+      .col-md-6
+        %button.btn.btn-primary{"ng-file-select" => true, "ng-model" => "files", multiple: "false", "ng-file-select" => "upload($files)"}= t('admin.media.upload_image')
+        %br
+        %img.selected{"ng-src" => "{{image.file_thumbnail_url}}"}
+      .col-md-6
+        .pagination{"ng-show" => "show_gallery"}
+          .form-group
+            .controls
+              %input.form-control{"ng-model" => "term", "ng-change" => "performSearch()", "placeholder" => "Search"}
+          %a.btn.btn-default{"ng-show" => "previous", "ng-click" => "previousPage()"}= t('admin.media.previous')
+          %a.btn.btn-default{"ng-show" => "next", "ng-click" => "nextPage()"}= t('admin.media.next')
+          %br
+          = t('admin.media.page_of')
+        .show_gallery{"ng-hide" => "show_gallery"}
+          %a{href: "#", "ng-click" => "showGallery()"}= t('admin.media.show_gallery')
+        .hide_gallery{"ng-show" => "show_gallery"}
+          %a{href: "#", "ng-show" => "show_gallery", "ng-click" => "hideGallery()"}= t('admin.media.hide_gallery')
+
+    .row.images{"ng-show" => "show_gallery"}
+      .col-md-12
+        .img-container{"ng-repeat" => "img in images"}
+          %img{"ng-src" => "{{img.file_thumbnail_url}}", "ng-click" => "selectImage(img.id)"}
+
+  = content

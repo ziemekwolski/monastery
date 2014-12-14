@@ -4,15 +4,35 @@ class Admin::UploadsController < Admin::BaseController
 
   # GET /admin/uploads
   def index
-    @uploads = Upload.paginate(page: params[:page])
+    scope = Upload
+
+    if params[:term].present?
+      scope = scope.where("uploads.name ilike ?", "%#{params[:term]}%")
+    end
+
+    @uploads = scope.paginate(page: params[:page])
     respond_to do |format|
       format.json {
-        render json: @uploads, meta: {
-          pagination: {
-            page: @uploads.current_page,
-            total: @uploads.total_entries
-          }
-        }
+
+        next_url = if @uploads.current_page < @uploads.total_pages
+          admin_uploads_url(format: :json, term: params[:term], page: @uploads.current_page + 1)
+        else
+          ""
+        end
+
+        previous_url = if @uploads.current_page > 1
+          admin_uploads_url(format: :json, term: params[:term], page: @uploads.current_page - 1)
+        else
+          ""
+        end
+
+        response.headers["X-Pagination-Page"]     = @uploads.current_page.to_s
+        response.headers["X-Pagination-Total"]    = @uploads.total_pages.to_s
+        response.headers["X-Pagination-Per-Page"] = @uploads.per_page.to_s
+        response.headers["X-Pagination-Next"]     = next_url
+        response.headers["X-Pagination-Previous"] = previous_url
+
+        render json: @uploads
       }
     end
   end

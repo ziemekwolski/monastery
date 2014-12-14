@@ -47,7 +47,12 @@ es:
       value: "Valor"
 
     media:
-      browse_or_upload: "Navegar o Subir Fotos"
+      upload_image: "Subir Foto"
+      next: "Próxima"
+      previous: "Previo"
+      page_of: "Página {{page}} de {{total}}"
+      show_gallery: "Mostrar Galería"
+      hide_gallery: "Esconder Galería"
 
     user:
       new: "Nuevo Usuario"

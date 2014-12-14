@@ -90,4 +90,9 @@ module ApplicationHelper
     end
   end
 
+  def gallery(upload_id, &block)
+    content = yield
+    render partial: "admin/common/gallery", locals: {upload_id: upload_id, content: content}
+  end
+
 end

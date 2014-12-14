@@ -47,7 +47,12 @@ en:
       value: "Value"
 
     media:
-      browse_or_upload: "Browse Or Upload Media"
+      upload_image: "Upload Image"
+      next: "Next"
+      previous: "Previous"
+      page_of: "Page {{page}} of {{total}}"
+      show_gallery: "Show Gallery"
+      hide_gallery: "Hide Gallery"
 
     user:
       new: "New User"
