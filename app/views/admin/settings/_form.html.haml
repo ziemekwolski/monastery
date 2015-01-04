@@ -1,11 +1,11 @@
 - if @setting.image?
-  = gallery(@setting.value) do
+  = gallery(@setting.load_image.try(:id)) do
     - capture_haml do
       .setting
         = simple_form_for [:admin, @setting] do |f|
           .row
             .col-lg-12
-              = f.input :value, as: :hidden, input_html: {value: "{{image.id}}"}
+              = f.input :value, as: :hidden, input_html: {value: "Upload,{{image.id}}"}
           .row
             .col-lg-6
               .actions
