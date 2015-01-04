@@ -1,5 +1,7 @@
 class UserSessionsController < ApplicationController
 
+  layout 'other'
+
   def new
     @user = User.new
   end

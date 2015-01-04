@@ -1,21 +1,29 @@
 - if @setting.image?
-  = render partial: "admin/uploads/setting_file_upload", locals: {object: @setting}
-
-.setting
-  = simple_form_for [:admin, @setting] do |f|
-    .row
-      .col-lg-12
-        - if @setting.string?
-          = f.input :value, as: :string
-        - elsif @setting.code?
-          = f.input :value, as: :text, input_html: {class: "codemirror"}
-        - elsif @setting.image?
-          = f.input :value, as: :hidden
-        - elsif @setting.boolean?
-          = f.input :value, as: :boolean, wrapper: :inline_checkbox, label: @setting.name
-        - else
-          = f.input :value
-    .row
-      .col-lg-6
-        .actions
-          = f.submit t('admin.save'), class: "btn btn-primary"
+  = gallery(@setting.value) do
+    - capture_haml do
+      .setting
+        = simple_form_for [:admin, @setting] do |f|
+          .row
+            .col-lg-12
+              = f.input :value, as: :hidden, input_html: {value: "{{image.id}}"}
+          .row
+            .col-lg-6
+              .actions
+                = f.submit t('admin.save'), class: "btn btn-primary"
+- else
+  .setting
+    = simple_form_for [:admin, @setting] do |f|
+      .row
+        .col-lg-12
+          - if @setting.string?
+            = f.input :value, as: :string
+          - elsif @setting.code?
+            = f.input :value, as: :text, input_html: {class: "codemirror"}
+          - elsif @setting.boolean?
+            = f.input :value, as: :boolean, wrapper: :inline_checkbox, label: @setting.name
+          - else
+            = f.input :value
+      .row
+        .col-lg-6
+          .actions
+            = f.submit t('admin.save'), class: "btn btn-primary"

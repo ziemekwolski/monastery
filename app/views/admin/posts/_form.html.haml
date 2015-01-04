@@ -1,45 +1,45 @@
-= render partial: "admin/uploads/single_file_upload", locals: {object: @post, target: "#post_upload_id"}
-
-.post
-  = simple_form_for [:admin, @post] do |f|
-    .row
-      .col-lg-6
-        = f.input :title, label: t('admin.post.title')
-        = f.input :subtitle, label: t('admin.post.subtitle')
-        = f.input :summary, label: t('admin.post.summary')
-      .col-lg-6
+= gallery(@post.upload_id) do
+  - capture_haml do
+    .post
+      = simple_form_for [:admin, @post] do |f|
         .row
           .col-lg-6
-            = f.input :is_static, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_static')
-            = f.input :published, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_published')
+            = f.input :title, label: t('admin.post.title')
+            = f.input :subtitle, label: t('admin.post.subtitle')
+            = f.input :summary, label: t('admin.post.summary')
           .col-lg-6
-            .category
-              = f.input :user_id, collection: User.for_select, label: t('admin.post.author')
-              = f.input :category_id, collection: Category.for_select, label: t('admin.post.category')
-            = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_listed')
+            .row
+              .col-lg-6
+                = f.input :is_static, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_static')
+                = f.input :published, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_published')
+              .col-lg-6
+                .category
+                  = f.input :user_id, collection: User.for_select, label: t('admin.post.author')
+                  = f.input :category_id, collection: Category.for_select, label: t('admin.post.category')
+                = f.input :is_listed, as: :boolean, wrapper: :inline_checkbox, label: t('admin.post.is_listed')
+            .row
+              .col-lg-12
+                = f.input :slug, label: t('admin.post.slug')
+
         .row
           .col-lg-12
-            = f.input :slug, label: t('admin.post.slug')
+            #editor.row
+              .col-lg-6.markdown-entry
+                = f.input :body, input_html: {"v-model" => "input"}, label: false
+              .col-lg-6.markdown-preview{"v-html" => "input | marked"}
 
-    .row
-      .col-lg-12
-        #editor.row
-          .col-lg-6.markdown-entry
-            = f.input :body, input_html: {"v-model" => "input"}, label: false
-          .col-lg-6.markdown-preview{"v-html" => "input | marked"}
+        .row
+          .col-lg-6
+            .source
+              = f.input :source_url, label: t('admin.post.source_url')
+              = f.input :source_name, label: t('admin.post.source_name')
+          .col-lg-6
+            .seo
+              = f.input :seo_tags, label: t('admin.post.seo_tags')
+              = f.input :seo_description, label: t('admin.post.seo_description')
 
-    .row
-      .col-lg-6
-        .source
-          = f.input :source_url, label: t('admin.post.source_url')
-          = f.input :source_name, label: t('admin.post.source_name')
-      .col-lg-6
-        .seo
-          = f.input :seo_tags, label: t('admin.post.seo_tags')
-          = f.input :seo_description, label: t('admin.post.seo_description')
-
-    .row
-      .col-lg-6
-        .actions
-          = f.input :upload_id, as: :hidden
-          = f.submit t('admin.save'), class: "btn btn-primary"
+        .row
+          .col-lg-6
+            .actions
+              = f.input :upload_id, as: :hidden, input_html: {value: "{{image.id}}"}
+              = f.submit t('admin.save'), class: "btn btn-primary"

@@ -1,5 +1,5 @@
 ready = function() {
-  var uploadApp = angular.module('fileUpload', ['angularFileUpload']);
+  var uploadApp = angular.module('FileUploader', ['angularFileUpload']);
 
   uploadApp.controller('UploadController', [ '$scope', '$upload', '$http', function($scope, $upload, $http) {
 
@@ -80,6 +80,8 @@ ready = function() {
     $scope.performSearch();
 
   }]);
+
+  angular.bootstrap("body", ['FileUploader']);
 };
 
 $(document).ready(ready);
