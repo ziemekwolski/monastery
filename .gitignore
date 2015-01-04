@@ -16,6 +16,7 @@
 /tmp
 
 # Don't include the system folder
+/public
 /public/system
 
 .DS_Store

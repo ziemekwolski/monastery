@@ -23,3 +23,7 @@ test:
 
 production:
   <<: *default
+  encoding: unicode
+  database: paisita
+  username: lhalliday
+  password:
