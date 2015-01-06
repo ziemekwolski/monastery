@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.1.8'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.1'
 # Use Uglifier as compressor for JavaScript assets
@@ -13,7 +13,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jQuery as the JavaScript library
-gem 'jquery-rails', '~> 4.0.3'
+gem 'jquery-rails', '~> 3.1.2'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # For dealing with some jquery/turbolinks weirdness
@@ -77,4 +77,4 @@ gem 'sitemap_generator',       '~> 5.0.5'
 gem 'fog',                     '~> 1.26.0'
 gem 'redis',                   '~> 3.1.0'
 gem 'idioma',                  '~> 0.1.0'
-gem 'globalize',               '~> 4.0.2'
+gem 'globalize',               '~> 4.0.3'
