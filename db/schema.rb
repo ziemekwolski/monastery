@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203015831) do
+ActiveRecord::Schema.define(version: 20150212183834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 20141203015831) do
     t.text     "summary"
     t.boolean  "is_listed",                   default: true,  null: false
     t.string   "seo_tags",        limit: nil
+  end
+
+  create_table "redirects", force: true do |t|
+    t.string   "from_slug",         null: false
+    t.string   "to_path"
+    t.integer  "redirectable_id"
+    t.string   "redirectable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "setting_translations", force: true do |t|

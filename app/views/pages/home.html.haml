@@ -1,9 +1,9 @@
-- content_for :left_title, Setting.get(:title)
+- content_for :left_title, Setting.get(:short_desc)
 - content_for :left_desc, Setting.get(:short_desc)
 - content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
 - content_for :meta_tags do
   %meta{name: "description", content: Setting.get(:short_desc)}
-  %meta{property: "og:title", content: Setting.get(:title)}
+  %meta{property: "og:title", content: [Setting.get(:short_desc), Setting.get(:title)].join(" | ")}
   %meta{property: "og:site_name", content: Setting.get(:title)}
   %meta{property: "og:url", content: root_url}
   %meta{property: "og:description", content: Setting.get(:short_desc)}

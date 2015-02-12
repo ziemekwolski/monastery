@@ -44,7 +44,18 @@ class Admin::PostsController < Admin::BaseController
   # PATCH/PUT /admin/posts/1.json
   def update
     respond_to do |format|
+
+      old_slug = @post.slug
+
       if @post.update(admin_post_params)
+
+        unless old_slug == @post.slug
+          Redirect.create!({
+            from_slug: old_slug,
+            redirectable: @post
+          })
+        end
+
         format.html { redirect_to edit_admin_post_path(@post), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else

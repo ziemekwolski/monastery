@@ -32,7 +32,14 @@ class PostsController < ApplicationController
   end
 
   def load_post
-    @post = post_scope.where(slug: params[:id]).first || scope.find(params[:id])
+    @post = post_scope.where(slug: params[:id]).first || post_scope.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    try_redirect
+  end
+
+  def try_redirect
+    redirect = Redirect.find_by!(from_slug: params[:id])
+    redirect_to post_path(redirect.redirectable), status: :moved_permanently
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end
