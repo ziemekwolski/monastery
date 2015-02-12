@@ -1,4 +1,5 @@
-- content_for :left_title, Setting.get(:short_desc)
+- content_for :page_title, Setting.get(:short_desc)
+- content_for :left_title, Setting.get(:title)
 - content_for :left_desc, Setting.get(:short_desc)
 - content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
 - content_for :meta_tags do
