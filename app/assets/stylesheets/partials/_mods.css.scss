@@ -1,5 +1,13 @@
 header.hero-image {
-  height: 400px;
+  height: 200px;
+
+  @include breakpoint(md) {
+    height: 300px;
+  }
+
+  @include breakpoint(md) {
+    height: 400px;
+  }
 }
 
 .single-content {

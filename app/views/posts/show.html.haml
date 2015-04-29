@@ -69,7 +69,7 @@
   .row.read-another-section
     - @other_posts.limit(6).each do |post|
       = link_to post_path(post) do
-        .col-sm-6.col-md-2.no-gutter.read-another-container
+        .col-xs-6.col-sm-4.col-md-4.col-lg-2.no-gutter.read-another-container
           .overlay
           = image_tag post.upload.file.url(:square_800)
           %h3.read-another= post.title
