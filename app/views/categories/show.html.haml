@@ -6,10 +6,12 @@
   = auto_discovery_link_tag(:atom, category_feeds_url(@category, format: :xml), title: Setting.get(:title) + " - " + @category.name)
 
 .row
-  .favorites
-    %h2= t('posts')
+  .sub-nav
+    %a.select-posts.active{href: "#"}= t('posts')
+    - if @other_categories.exists?
+      %a.select-categories{href: "#"}= t('other_categories')
 
-  .favorite-posts.clearfix.animated.fadeIn
+  .home-page-posts.animated.fadeIn
     = render partial: "common/posts", locals: {posts: @posts}
     = will_paginate(@posts)
 
@@ -18,10 +20,7 @@
         %h2= t('no_category_posts')
 
   - if @other_categories.exists?
-    .favorites
-      %h2= t('other_categories')
-
-    .favorite-categories.clearfix.animated.fadeIn
+    .home-page-categories.hide.animated.fadeIn
       .category.row
         %section
           - @other_categories.each do |category|

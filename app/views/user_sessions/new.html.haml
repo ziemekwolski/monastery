@@ -3,12 +3,9 @@
 - content_for :left_desc, Setting.get(:short_desc)
 - content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
 
-.row
-  .favorites
-    %h2= t('login')
+%h3= t('login')
 
-  .home-page-posts.animated.fadeIn
-    = simple_form_for @user, url: login_path do |f|
-      = f.input :email, input_html: {class: "form-control"}, label: t('email')
-      = f.input :password, input_html: {class: "form-control"}, label: t('password')
-      = f.submit t('login'), class: "btn btn-primary"
+= simple_form_for @user, url: login_path do |f|
+  = f.input :email, input_html: {class: "form-control"}, label: t('email')
+  = f.input :password, input_html: {class: "form-control"}, label: t('password')
+  = f.submit t('login'), class: "btn btn-primary"

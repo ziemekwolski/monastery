@@ -2,9 +2,11 @@
     padding: 15px
     width: 100%
     height: 350px
-    background: url(../img/background1.jpg) no-repeat center center
-    +background-size(cover)
-    @include transition(all, 450ms)
+    background-image: url(../img/default-sidebar.jpg)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    transition: all 450ms
 
     +breakpoint(sm)
         height: 450px
@@ -42,7 +44,6 @@
 
         p
             margin-bottom: 10px
-            font-family: $serif
             text-shadow: 0 1px 3px rgba(0,0,0,0.3)
             +line-height(24)
             +font-size(16)
@@ -54,16 +55,15 @@
         .primary-info
             border-bottom: solid 1px rgba(255,255,255,0.3)
 
+            a
+                color: #E0E0E0
+            a:hover,
+            a:active
+                color: #fafafa
+
         .secondary-info
 
             p
                 margin: 20px 0 0
                 font-family: $sans
                 +font-size(14)
-
-            .btn-grande
-                margin-right: 10px
-
-.sidebar-fav
-    background: url(../img/background2.jpg) no-repeat center center
-    +background-size(cover)

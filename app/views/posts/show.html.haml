@@ -12,37 +12,64 @@
   %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
   %meta{property: "og:type", content: "website"}
 
-.post
-  %p.meta
-    = render partial: "common/post_meta", locals: {post: @post}
-    %img.user-icon.user-1{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
-
-  = Setting.get(:social_share_code).html_safe
-
-  %h1= @post.title
-  - if @post.subtitle.present?
-    %p.subtitle= @post.subtitle
-
-  .body
-    ~ parse_body(@post.body)
-
-  - if @post.source_url.present? && @post.source_name.present?
-    %span.source
-      Source:
-      = link_to @post.source_name, @post.source_url, target: "_blank"
-
-  = Setting.get(:post_footer_code).html_safe
-
-  = render partial: "common/user_social", locals: {user: @post.user}
-
+%main.container
   .row
-    .col-md-6
-      %h4= t('in_category', {category: @post.category.name})
-      %ul
-        - @other_category_posts.limit(5).each do |post|
-          %li= link_to post.title, post_path(post)
-    .col-md-6
-      %h4= t('newest')
-      %ul
-        - @other_posts.limit(5).each do |post|
-          %li= link_to post.title, post_path(post)
+    .col-xs-12.single-content
+      %p.meta
+        = render partial: "common/post_meta", locals: {post: @post}
+        %img.user-icon.user-1{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
+
+      = Setting.get(:social_share_code).html_safe
+
+      %h1= @post.title
+      - if @post.subtitle.present?
+        %p.subtitle= @post.subtitle
+
+      ~ parse_body(@post.body)
+
+      - if @post.source_url.present? && @post.source_name.present?
+        %span.source
+          Source:
+          = link_to @post.source_name, @post.source_url, target: "_blank"
+
+      = Setting.get(:post_footer_code).html_safe
+
+%footer.single
+  .container
+    .row
+      .col-xs-12.col-sm-2
+        %img.user-icon{:alt => @post.user.name, :src => @post.user.upload.file.url(:square_200)}/
+
+      .col-xs-12.col-sm-6
+        .category-list
+          %p
+            Published
+            %span= @post.published_at.to_s
+          %p
+            = @post.user.name
+            = t('in_category', category: link_to(@post.category.name, category_path(@post.category))).html_safe
+          %p= @post.user.snippet.to_s.html_safe
+
+      .col-xs-12.col-sm-4
+        .social
+          %p Reach me at
+          - if @post.user.twitter.present?
+            %a.social-icon{:href => "https://twitter.com/#{@post.user.twitter}", target: "_blank"}
+              %i.fa.fa-twitter
+          - if @post.user.linkedin.present?
+            %a.social-icon{:href => "https://linkedin.com/profile/view?id=#{@post.user.linkedin}", target: "_blank"}
+              %i.fa.fa-linkedin
+          - if @post.user.github.present?
+            %a.social-icon{:href => "https://github.com/#{@post.user.github}", target: "_blank"}
+              %i.fa.fa-github
+          - if @post.user.email.present?
+            %a.social-icon{:href => "mailto:#{@post.user.email}"}
+              %i.fa.fa-envelope
+
+  .row.read-another-section
+    - @other_posts.limit(6).each do |post|
+      = link_to post_path(post) do
+        .col-sm-6.col-md-2.no-gutter.read-another-container
+          .overlay
+          = image_tag post.upload.file.url(:square_800)
+          %h3.read-another= post.title

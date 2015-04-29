@@ -4,29 +4,16 @@
 
   %body
 
-    %span.menu-trigger.side-writer-icon.writer-icon.animated.fadeInDown
-      %span.bar
-      %span.bar
-      %span.bar
+    = render partial: "layouts/common/menu"
 
     - hero_image = content_for(:hero_image)
     - style = "background-image: url(#{hero_image});"
-    .hero-image.hero-a-great-story{style: style}
+    %header.hero-image{style: style, role: "banner"}
+    %span.menu-trigger.push
+      %span.bar
+      %span.bar
+      %span.bar
 
-      %noscript
-        .no-js-menu
-          = render partial: "layouts/common/menu"
-
-    .container
-      .row
-        #menu
-          = render partial: "layouts/common/menu"
-
-        .col-xs-12.main-content.single-content
-          = render partial: "common/select_locale"
-
-          = yield
-
-          = render partial: "common/footer"
+    = yield
 
     = render partial: "layouts/common/footer"

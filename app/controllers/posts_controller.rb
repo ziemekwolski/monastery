@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   def show
     unless @post.is_static?
       @other_posts = posts_scope.where("posts.id != ?", @post.id)
-      @other_category_posts = @post.category.posts.merge(@other_posts)
     end
     render @post.is_static? ? "static" : "show"
   end

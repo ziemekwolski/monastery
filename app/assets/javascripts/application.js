@@ -11,19 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery.turbolinks
 //= require jquery_ujs
-// require turbolinks
 //= require bootstrap-sprockets
-//= require jquery.jpanelmenu.min
-//= require modernizr-2.6.2-respond-1.1.0.min
+//= require bigslide
+//= require fastclick.min
+//= require modernizr.custom.min
+//= require retina.min.js
 //= require_tree ./main
 
 $(document).ready(function() {
   $('pre code').each(function(i, block) {
-    //var pre = $(block).parent();
-    //var lang = pre.attr('lang');
-    //pre.find("code").addClass(lang);
     hljs.highlightBlock(block);
   });
 });

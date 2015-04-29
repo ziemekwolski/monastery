@@ -68,7 +68,7 @@ module ApplicationHelper
     Idioma.conf.locales.each_with_object([]) do |locale, ary|
       language = Language.native_name(locale).capitalize
       ary << if locale.to_s == I18n.locale.to_s
-        language
+        link_to(language, "#")
       else
         link_to(language, params.merge(locale: locale))
       end

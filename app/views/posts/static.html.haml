@@ -11,10 +11,14 @@
   %meta{property: "og:image", content: @post.upload.file.url(:wide_1440)}
   %meta{property: "og:type", content: "website"}
 
-.post
-  %h1= @post.title
-  - if @post.subtitle.present?
-    %p.subtitle= @post.subtitle
+%main.container
+  .row
+    .col-xs-12.single-content
 
-  .body
-    ~ parse_body(@post.body)
+      %h1= @post.title
+      - if @post.subtitle.present?
+        %p.subtitle= @post.subtitle
+
+      ~ parse_body(@post.body)
+
+      = render partial: "common/footer"

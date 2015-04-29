@@ -1,33 +1,25 @@
 !!! 5
-%html{lang: I18n.locale}
+%html.no-js{lang: I18n.locale}
   = render partial: "layouts/common/head"
 
   %body
 
-    .container.home-container
-      .row
-        #menu
-          = render partial: "layouts/common/menu"
+    = render partial: "layouts/common/menu"
 
+    %main.container.left-container
+      .row
         - style = "background-image: url(#{content_for(:left_image_url)});"
-        .sidebar.col-md-5.col-sm-12{style: style}
-          %span.menu-trigger.side-writer-icon.animated.fadeInDown
+        %section.sidebar.col-md-5.col-sm-12{style: style}
+          %span.menu-trigger.push
             %span.bar
             %span.bar
             %span.bar
-          / if the user has javascript disabled they can still use the menu
-          %noscript
-            .no-js-menu
-              = render partial: "layouts/common/menu"
-          / end no script
           .site-info
             .primary-info
               %h1= content_for :left_title
               %p= content_for :left_desc
 
-        .col-md-7.col-sm-12.col-md-offset-5.main-content
-          = render partial: "common/select_locale"
-
+        %section.col-md-7.col-sm-12.col-md-offset-5.main-content
           = yield
 
           = render partial: "common/footer"

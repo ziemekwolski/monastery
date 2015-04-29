@@ -1,11 +1,14 @@
-.post {
+header.hero-image {
+  height: 400px;
+}
+
+.single-content {
   a {
     color: $light-blue;
     &:hover {
       color: $light-grey;
     }
   }
-
 
   p.meta {
     a {
@@ -40,12 +43,23 @@
   color: $light-blue;
 }
 
-.user-bio {
-  margin: 15px 0px 15px 0px;
-  padding: 10px 0px 10px 0px;
-  border: 1px solid $light-grey;
-
-  p {
-    margin: 0px;
+footer.single {
+  .category-list {
+    padding-right: 20px;
   }
+  .user-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+nav.panel {
+  z-index: 5;
+  position: fixed;
+  left: -31.2emem;
+  width: 31.2emem;
+}
+
+.menu-trigger {
+  margin-left: 15px;
 }
