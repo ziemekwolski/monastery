@@ -33,6 +33,8 @@ var s,
             $('.home-footer').toggleClass("hide");
         },
         panel: function(){
+            $('nav.panel').show();
+
             $('.menu-trigger').bigSlide({
                 menuWidth: "31.2em",
                 easyClose: false,
