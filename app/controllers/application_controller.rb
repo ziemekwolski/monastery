@@ -109,7 +109,8 @@ class ApplicationController < ActionController::Base
       'securesuite.net',
       'www3.free-social-buttons.com',
       'free-social-buttons.com',
-      'sitevaluation.org'
+      'sitevaluation.org',
+      'webmonetizer.net'
     ]
   end
 end
