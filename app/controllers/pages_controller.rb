@@ -6,9 +6,6 @@ class PagesController < ApplicationController
     @categories = Category.listed
 
     scope = Post.listed_posts
-    if Setting.get(:i18n_activated)
-      scope = scope.with_translations(I18n.locale)
-    end
 
     @posts_limit = 15
     @posts = scope.limit(@posts_limit)

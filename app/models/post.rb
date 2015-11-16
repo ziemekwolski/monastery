@@ -32,7 +32,9 @@ class Post < ActiveRecord::Base
   # == Extensions ===========================================================
 
   date_flag :published_at
-  translates :title, :subtitle, :body, :summary, :seo_description, :seo_tags
+  if ENV["I18N"]
+    translates :title, :subtitle, :body, :summary, :seo_description, :seo_tags
+  end
 
   # == Relationships ========================================================
 

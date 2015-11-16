@@ -1,14 +1,18 @@
+- main_image = Setting.get(:main_image)
+
 - content_for :page_title, Setting.get(:short_desc)
 - content_for :left_title, Setting.get(:title)
 - content_for :left_desc, Setting.get(:short_desc)
-- content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
+- if main_image.present?
+  - content_for :left_image_url, main_image.file.url(:square_1440)
 - content_for :meta_tags do
   %meta{name: "description", content: Setting.get(:short_desc)}
   %meta{property: "og:title", content: [Setting.get(:short_desc), Setting.get(:title)].join(" | ")}
   %meta{property: "og:site_name", content: Setting.get(:title)}
   %meta{property: "og:url", content: root_url}
   %meta{property: "og:description", content: Setting.get(:short_desc)}
-  %meta{property: "og:image", content: Setting.get(:main_image).file.url(:wide_1440)}
+  - if main_image.present?
+    %meta{property: "og:image", content: main_image.file.url(:wide_1440)}
   %meta{property: "og:type", content: "website"}
 
 .sub-nav

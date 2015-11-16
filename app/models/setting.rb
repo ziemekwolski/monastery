@@ -20,7 +20,9 @@ class Setting < ActiveRecord::Base
 
   # == Extensions ===========================================================
 
-  translates :value
+  if ENV["I18N"]
+    translates :value
+  end
 
   # == Relationships ========================================================
 
@@ -38,32 +40,17 @@ class Setting < ActiveRecord::Base
   # == Class Methods ========================================================
 
   def self.get(key)
-    return self.i18n_default_locale if key == :i18n_default_locale
-    self.translated_get(key)
-  end
-
-  def self.translated_get(key)
-    locale = Settings::Manager.setting_translatable?(key) ? I18n.locale : Setting.get(:i18n_default_locale)
-
-    Globalize.with_locale(locale) do
-      setting = self.by_key(key).first
-      return case
-        when setting.nil?
-          Settings::Manager.load_default(key)
-        when setting.reference? || setting.image?
-          setting.load_reference
-        when setting.boolean?
-          setting.value == "1"
-        else
-          setting.value.to_s
-      end
+    setting = self.by_key(key).first
+    return case
+      when setting.nil?
+        Settings::Manager.load_default(key)
+      when setting.reference? || setting.image?
+        setting.load_reference
+      when setting.boolean?
+        setting.value == "1"
+      else
+        setting.value.to_s
     end
-  end
-
-  # This is a way to find the default locale without going through
-  # the normal Globalize way of looking it up.
-  def self.i18n_default_locale
-    self.where(key: :i18n_default_locale).pluck(:value).first
   end
 
   def self.key_from_id(id)

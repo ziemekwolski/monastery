@@ -4,9 +4,6 @@ class FeedsController < ApplicationController
 
   def index
     scope = build_scope
-    if Setting.get(:i18n_activated)
-      scope = scope.with_translations(I18n.locale)
-    end
     @posts = scope.limit(50)
   end
 
