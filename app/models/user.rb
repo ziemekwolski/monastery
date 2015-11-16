@@ -27,9 +27,6 @@ class User < ActiveRecord::Base
   # == Extensions ===========================================================
 
   authenticates_with_sorcery!
-  if ENV["I18N"]
-    translates :snippet
-  end
 
   # == Relationships ========================================================
 

@@ -20,10 +20,6 @@ class Category < ActiveRecord::Base
 
   # == Extensions ===========================================================
 
-  if ENV["I18N"]
-    translates :name, :description
-  end
-
   # == Relationships ========================================================
 
   has_many :posts

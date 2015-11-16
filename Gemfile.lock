@@ -204,9 +204,6 @@ GEM
     github-markdown (0.6.9)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    globalize (5.0.1)
-      activemodel (>= 4.2.0, < 4.3)
-      activerecord (>= 4.2.0, < 4.3)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -394,7 +391,6 @@ DEPENDENCIES
   fog (~> 1.35.0)
   font-awesome-rails (~> 4.4.0)
   github-markdown (~> 0.6.9)
-  globalize (~> 5.0.1)
   haml-rails (~> 0.9.0)
   idioma (~> 0.1.2)
   jbuilder (~> 2.3.2)
