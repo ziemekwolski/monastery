@@ -33,7 +33,7 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'aws-sdk'
+  gem 'aws-sdk', '< 2.0'
 end
 
 gem 'active_model_serializers', git: "https://github.com/rails-api/active_model_serializers.git"
@@ -55,7 +55,6 @@ gem 'redcarpet',               '~> 3.3.3' # markdown
 gem 'codemirror-rails',        '~> 5.6'
 gem 'nokogiri',                '~> 1.6.6'
 gem 'sitemap_generator',       '~> 5.1.0'
-gem 'fog',                     '~> 1.35.0'
 gem 'redis',                   '~> 3.2.1'
 gem 'idioma',                  '~> 0.1.2'
 gem 'net-ssh'
