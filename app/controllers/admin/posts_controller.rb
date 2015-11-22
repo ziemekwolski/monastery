@@ -49,7 +49,7 @@ class Admin::PostsController < Admin::BaseController
 
       if @post.update(admin_post_params)
 
-        unless old_slug == @post.slug
+        if old_slug.present? && old_slug != @post.slug
           Redirect.create!({
             from_slug: old_slug,
             redirectable: @post

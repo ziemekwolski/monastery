@@ -2,16 +2,13 @@ source 'https://rubygems.org'
 ruby "2.2.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 2.7.2'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.5'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -21,29 +18,16 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.3.2'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
   gem 'dotenv-rails'
 end
 
 group :test do
-  # For testing
   gem 'rspec-rails', '~> 3.3.3'
 end
 
 group :development do
-  gem 'annotate'
   gem 'quiet_assets'
 end
 
@@ -53,7 +37,6 @@ group :production do
 end
 
 gem 'active_model_serializers', git: "https://github.com/rails-api/active_model_serializers.git"
-
 gem 'bootstrap-sass',          '~> 3.3.5.1'
 gem 'simple_form',             '~> 3.2.0'
 gem 'autoprefixer-rails',      '~> 6.1.0'
@@ -75,3 +58,4 @@ gem 'sitemap_generator',       '~> 5.1.0'
 gem 'fog',                     '~> 1.35.0'
 gem 'redis',                   '~> 3.2.1'
 gem 'idioma',                  '~> 0.1.2'
+gem 'net-ssh'

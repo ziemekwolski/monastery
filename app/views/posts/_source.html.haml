@@ -1,0 +1,4 @@
+- if post.source_url.present? && post.source_name.present?
+  .source
+    Originally on:
+    = link_to post.source_name, post.source_url, target: "_blank"

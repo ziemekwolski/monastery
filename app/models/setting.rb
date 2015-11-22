@@ -1,17 +1,3 @@
-# == Schema Information
-#
-# Table name: settings
-#
-#  id          :integer          not null, primary key
-#  key         :string
-#  value       :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#  data_type   :string           default("string")
-#  name        :string
-#  description :text
-#
-
 class Setting < ActiveRecord::Base
 
   # == Constants ============================================================
@@ -51,6 +37,10 @@ class Setting < ActiveRecord::Base
 
   def self.key_from_id(id)
     self.where(id: id).pluck(:key).first
+  end
+
+  def self.max_updated_at
+    self.maximum(:updated_at)
   end
 
   # == Instance Methods =====================================================

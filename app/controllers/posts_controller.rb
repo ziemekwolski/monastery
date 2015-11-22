@@ -10,9 +10,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    unless @post.is_static?
-      @other_posts = posts_scope.where("posts.id != ?", @post.id)
-    end
     render @post.is_static? ? "static" : "show"
   end
 
