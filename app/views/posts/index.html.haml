@@ -1,7 +1,9 @@
 - content_for :page_title, t('posts')
 - content_for :left_title, Setting.get(:title)
 - content_for :left_desc, Setting.get(:short_desc)
-- content_for :left_image_url, Setting.get(:main_image).file.url(:square_1440)
+- main_image = Setting.get(:main_image)
+- if main_image.present?
+  - content_for :left_image_url, main_image.file.url(:square_1440)
 
 .row
   .favorites
@@ -10,4 +12,4 @@
   .home-page-posts.animated.fadeIn
     = render partial: "common/posts", locals: {posts: @posts}
 
-    = will_paginate(@posts)
+    = will_paginate(@posts, renderer: BootstrapPagination::Rails)

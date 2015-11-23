@@ -13,7 +13,8 @@
 
   .home-page-posts.animated.fadeIn
     = render partial: "common/posts", locals: {posts: @posts}
-    = will_paginate(@posts)
+
+    = will_paginate(@posts, renderer: BootstrapPagination::Rails)
 
     - if @posts.empty?
       .post-favorite.col-xs-12.col-sm-12.no-gutter

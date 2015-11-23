@@ -23,7 +23,7 @@
   - if @posts_count > @posts_limit
     .row
       .col-md-12
-        = link_to t('view_more'), posts_path, class: "view-more text-center"
+        = link_to t('view_more'), posts_path, class: "view-more btn btn-default"
 
 .home-page-categories.hide.animated.fadeIn
   = render partial: "common/categories", locals: {categories: @categories}
