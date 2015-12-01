@@ -13,46 +13,19 @@ unless Rails.env.development? || Rails.env.test?
   SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 end
 
-alternate_locales = if Setting.get(:i18n_activated)
-  Idioma.conf.locales - Array(Idioma.conf.default_locale)
-else
-  []
-end
-
 SitemapGenerator::Sitemap.create do
 
   # Posts
   Post.listed_posts.find_each do |post|
-    alternates = alternate_locales.map do |locale|
-      {
-        href: post_url(post, locale: locale, host: default_host),
-        lang: locale
-      }
-    end
-    add(post_path(post, locale: nil),
-      lastmod: post.updated_at,
-      alternates: alternates
-    )
+    add(post_path(post), lastmod: post.updated_at)
   end
 
   # Categories Index
-  alternates = alternate_locales.map do |locale|
-    {
-      href: categories_url(locale: locale, host: default_host),
-      lang: locale
-    }
-  end
-  add(categories_path(locale: nil), alternates: alternates)
+  add(categories_path)
 
   # Categories
   Category.listed.find_each do |category|
-    alternates = alternate_locales.map do |locale|
-      {
-        href: category_url(category, locale: locale, host: default_host),
-        lang: locale
-      }
-    end
-    add(category_path(category, locale: nil), alternates: alternates)
+    add(category_path(category))
   end
 
 end
