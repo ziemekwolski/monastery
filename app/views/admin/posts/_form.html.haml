@@ -25,7 +25,7 @@
           .col-lg-12
             #editor.row
               .col-lg-6.markdown-entry
-                = f.input :body, input_html: {"v-model" => "input"}, label: false
+                = f.input :body, input_html: {"v-model" => "input", debounce: "300"}, label: false
               .col-lg-6.markdown-preview{"v-html" => "input | marked"}
 
         .row
