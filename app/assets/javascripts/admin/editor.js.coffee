@@ -3,6 +3,8 @@ ready = ->
 
     new Vue(
       el: "#editor"
+      data:
+        input: ""
       filters:
         marked: marked
     )
