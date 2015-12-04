@@ -81,14 +81,6 @@
     translatable: false
   -
     section: "i18n"
-    key: "i18n_activated"
-    name: "Has Translations?"
-    data_type: "boolean"
-    description: "Whether this website has translations."
-    default: false
-    translatable: false
-  -
-    section: "i18n"
     key: "i18n_default_locale"
     name: "Default Locale"
     data_type: "string"

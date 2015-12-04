@@ -16,17 +16,17 @@ class Admin::SettingsController < Admin::BaseController
   end
 
   def update
-    Globalize.with_locale(@edit_locale) do
-      respond_to do |format|
-        if @setting.update(admin_setting_params)
-          format.html { redirect_to admin_settings_path, notice: 'Setting was successfully updated.' }
-          format.json { render :show, status: :ok }
-        else
-          format.html { render :edit }
-          format.json { render json: @post.errors, status: :unprocessable_entity }
-        end
+
+    respond_to do |format|
+      if @setting.update(admin_setting_params)
+        format.html { redirect_to admin_settings_path, notice: 'Setting was successfully updated.' }
+        format.json { render :show, status: :ok }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   private

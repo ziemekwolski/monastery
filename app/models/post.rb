@@ -7,7 +7,6 @@ class Post < ActiveRecord::Base
   # == Extensions ===========================================================
 
   date_flag :published_at
-
   # == Relationships ========================================================
 
   belongs_to :user

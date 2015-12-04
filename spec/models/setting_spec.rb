@@ -9,6 +9,14 @@ RSpec.describe Setting, :type => :model do
   describe "#get" do
     before(:each) do
       load
+      Setting.create!({
+        key: :i18n_activated,
+        name: "Translations?",
+        data_type: "boolean",
+        description: "Translation active",
+        value: "f"
+      })
+
     end
 
     it "a boolean" do

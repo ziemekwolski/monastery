@@ -6,4 +6,5 @@
       %p.meta
         = render partial: "common/post_meta", locals: {post: post}
     .col-xs-2.no-gutter
-      %img.user-icon.user-1{:alt => post.user.name, :src => post.user.upload.file.url(:square_200)}/
+      -if post.user.upload.present?
+        %img.user-icon.user-1{:alt => post.user.name, :src => post.user.upload.file.url(:square_200)}/
