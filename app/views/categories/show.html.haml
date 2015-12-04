@@ -1,7 +1,7 @@
 - content_for :page_title, @category.name
 - content_for :left_title, @category.name
 - content_for :left_desc, @category.description
-- content_for :left_image_url, @category.upload.file.url(:square_1440)
+- content_for :left_image_url, @category.upload.try(:file).try(:url, :square_1440)
 - content_for(:auto_discovery_tags) do
   = auto_discovery_link_tag(:atom, category_feeds_url(@category, format: :xml), title: Setting.get(:title) + " - " + @category.name)
 
