@@ -18,6 +18,8 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.3.2'
 
+gem 'unicorn', '~> 5.0.1'
+
 group :development, :test do
   gem 'spring'
   gem 'dotenv-rails'
