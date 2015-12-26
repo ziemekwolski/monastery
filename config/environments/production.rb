@@ -75,12 +75,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # The www-data user does not have access environment variables using nginx.
+  # This allows setting the aws config with the environment variables.
+  if File.exists?(Rails.root.join('config', 'aws_settings.yml'))
+    AWS_SETTINGS = YAML.load(File.open(Rails.root.join('config', 'awe_settings.yml')))
+  end
+
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => (ENV['S3_BUCKET_NAME'] || AWS_SETTINGS['S3_BUCKET_NAME']),
+      :access_key_id => (ENV['AWS_ACCESS_KEY_ID'] || AWS_SETTINGS['AWS_ACCESS_KEY_ID']),
+      :secret_access_key => (ENV['AWS_SECRET_ACCESS_KEY'] || AWS_SETTINGS['AWS_SECRET_ACCESS_KEY'])
     },
     :s3_protocol => :https
   }
