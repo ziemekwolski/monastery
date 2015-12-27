@@ -78,7 +78,7 @@ Rails.application.configure do
   # The www-data user does not have access environment variables using nginx.
   # This allows setting the aws config with the environment variables.
   if File.exists?(Rails.root.join('config', 'aws_settings.yml'))
-    AWS_SETTINGS = YAML.load(File.open(Rails.root.join('config', 'awe_settings.yml')))
+    AWS_SETTINGS = YAML.load(File.open(Rails.root.join('config', 'aws_settings.yml')))
   end
 
   config.paperclip_defaults = {
